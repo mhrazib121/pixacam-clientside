@@ -1,0 +1,62 @@
+.logo-design{
+    /* height: 25%; */
+    width: 15%;
+}
+.link-design{
+    text-decoration: none;
+    color: #FF091F;
+    text-transform: uppercase;
+}
+.link-design::after{
+    content: "";
+    background-color: #9fb205;
+    position: absolute;
+    height: 3px;
+    width:0;
+    left: 0;
+    bottom: -10px;
+    transition: .5s;
+}
+.link-design:hover::after {
+    width: 100%;
+    
+ }
+.header-de{
+    background-color: #fdd3c79f;
+    color: #FF091F;
+    margin-right: auto;
+    z-index: 1000;
+}
+.header-de{
+    color:#FF091F;
+}
+.header-de Link:hover{
+    color: red;
+}
+.text-color{
+    color:#FF4A17;
+}
+
+.btn-all{
+    padding: .5rem 1rem;
+    background-color: #FF4A17;
+    border: solid #FF4A17;
+    border-radius: 25px;
+    font-weight: 600;
+    color: white;
+}
+.btn-all:hover{
+    background-color: white;
+    border-radius: 25px;
+    border: solid #FF4A17;
+    font-weight: 600;
+    color: #FF4A17;
+    transition: .5s ease-in-out;
+}
+.link-de{
+    text-decoration: none;
+    color: white;
+}
+.link-de:hover{
+    color:#FF4A17;
+}
