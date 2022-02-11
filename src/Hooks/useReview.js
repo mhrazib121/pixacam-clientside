@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const useReview = () => {
-    const [reviews, setReviews]=useState([])
-    fetch('data.JSON')
-    .then(res=> res.json())
-    .then(data=> setReviews(data))
-    return [
-        reviews
-    ];
+    return (
+        <div>
+            
+        </div>
+    );
 };
 
 export default useReview;
