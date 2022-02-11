@@ -1,0 +1,65 @@
+[
+    {
+        "id": 1,
+        "img": "https://image.shutterstock.com/image-vector/mathematics-open-book-maths-doodle-260nw-1187012593.jpg",
+        "serviceName": "Basic Math",
+        "tutorName": "Muhammad Aminur Rahman",
+        "fee": 200
+    },
+    {
+        "id": 2,
+        "img": "https://media.istockphoto.com/photos/bengali-language-and-culture-concept-picture-id1031844020?k=20&m=1031844020&s=612x612&w=0&h=Q2dwtJO1ywLTSdjwB7UpK1ZhXRoVkQJveZAMcoFKjEw=",
+        "serviceName": "Bangla",
+        "tutorName": "Tanhim Mahir",
+        "fee": 700
+    },
+    {
+        "id": 3,
+        "img": "https://image.shutterstock.com/image-photo/english-education-business-background-concept-260nw-1070946887.jpg",
+        "serviceName": "English",
+        "tutorName": "Tareq Islam",
+        "fee": 800
+    },
+    {
+        "id": 4,
+        "img": "https://www.mathplanet.com/media/584568/mathplanet.png",
+        "serviceName": "Advance Math",
+        "tutorName": "Mahabob Hasan Sazib",
+        "fee": 520
+    },
+    {
+        "id": 5,
+        "img": "https://www.sciencediplomacy.org/sites/default/files/styles/large/public/images/istock-photo_flag_globe_and_laptop_small.jpg?itok=EWjcHea7",
+        "serviceName": "Global Science",
+        "tutorName": "Abu Sufian",
+        "fee": 950
+    },
+    {
+        "id": 6,
+        "img": "https://dept.jnu.ac.bd/assets/slider/50.jpg",
+        "serviceName": "CSE",
+        "tutorName": "Sadequr Rahman",
+        "fee": 950
+    },
+    {
+        "id": 7,
+        "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuSLTMqEwNGlQQStY_AHaL3uWN_muzKZ93LD5YpjEihQRVLaN-6DGNEp1Z5NbntHQX6K8&usqp=CAU",
+        "serviceName": "General Knowledge",
+        "tutorName": "Md. Razib Hasan",
+        "fee": 850
+    },
+    {
+        "id": 8,
+        "img": "https://image.shutterstock.com/image-photo/ict-information-communication-technology-concept-260nw-1262757361.jpg",
+        "serviceName": "Information and Communications Technology",
+        "tutorName": "Jhankar Mahbub",
+        "fee": 890
+    },
+    {
+        "id": 9,
+        "img": "https://obxartstudio.com/wp-content/uploads/2016/10/Art.jpg",
+        "serviceName": "Art",
+        "tutorName": "Joynul Abedin",
+        "fee": 870
+    }
+]

@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { faArrowRightArrowLeft, faAward, faTruck, faUserShield } from '@fortawesome/free-solid-svg-icons';
 import './Home.css'
+import Reviews from '../Reviews/Reviews';
 
 const Home = () => {
     return (
@@ -49,8 +50,13 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Reviews Section  */}
+            <div>
+                <Reviews/>
+            </div>
         </div>
     );
 };
 
-export default Home; <h1>this is home</h1>
+export default Home;
