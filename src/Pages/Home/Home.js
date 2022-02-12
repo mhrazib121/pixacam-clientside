@@ -5,10 +5,13 @@ import { faArrowRightArrowLeft, faAward, faTruck, faUserShield } from '@fortawes
 import './Home.css'
 import Reviews from '../Reviews/Reviews';
 import Products from '../Products/Products';
+import Header from '../../Shared/Header/Header';
+import Footer from '../../Shared/Footer/Footer';
 
 const Home = () => {
     return (
         <div className=''>
+            <Header/>
             <div className='top-section top-banner'>
                 <h1 className='md:text-6xl sm:text-sm text-rose-500  text-center '>
                     Capture Your <br /> <span className='text-color'> Beautyfull Moments </span>
@@ -62,6 +65,7 @@ const Home = () => {
             <div>
                 {/* <Reviews/> */}
             </div>
+            <Footer/>
         </div>
     );
 };

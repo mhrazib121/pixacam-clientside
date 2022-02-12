@@ -6,10 +6,13 @@ import { faFacebook, faInstagram, faLinkedinIn } from "@fortawesome/free-brands-
 import ceo from '../../images/team/team-3.jpg'
 import pm from '../../images/team/team-2.jpg'
 import cto from '../../images/team/team-1.jpg'
+import Header from '../../Shared/Header/Header';
+import Footer from '../../Shared/Footer/Footer';
 
 const About = () => {
     return (
         <div>
+            <Header/>
             {/* Our Working Process  */}
             <div>
                 <h1 className='text-4xl font-bold text-center my-4'>Our <span className='text-color'>Work Progress</span></h1>
@@ -88,6 +91,7 @@ const About = () => {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 };
