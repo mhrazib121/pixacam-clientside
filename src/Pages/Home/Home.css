@@ -1,7 +1,8 @@
 .top-banner{
     background: url(../../images/banner-1.jpg);
     background-position: center;
-    background-size: cover;
+    /* background-size: cover; */
+    background-size:100vw 120vh;
     background-attachment: fixed;
     background-repeat: no-repeat;
 }

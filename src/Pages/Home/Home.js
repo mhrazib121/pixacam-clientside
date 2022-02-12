@@ -3,6 +3,8 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { faArrowRightArrowLeft, faAward, faTruck, faUserShield } from '@fortawesome/free-solid-svg-icons';
 import './Home.css'
+import Reviews from '../Reviews/Reviews';
+import Products from '../Products/Products';
 
 const Home = () => {
     return (
@@ -16,10 +18,14 @@ const Home = () => {
                 </div>
             </div>
 
+            <Products/>
 
             {/* Feature  */}
 
+            
+            <hr />
             <div className="sm:grid md:grid-cols-4 my-4 md:gap-4 grid-cols-2 sm:gap-1 justufy-center container">
+              
                 <div className='text-base flex items-center my-4  '>
                     <span className='text-5xl text-color'>{ <FontAwesomeIcon icon={faTruck} />}</span>
                     <div className='mx-3'>
@@ -48,9 +54,16 @@ const Home = () => {
                         <p> Easy to return your products </p>
                     </div>
                 </div>
+               
+            </div>
+            <hr />
+
+            {/* Reviews Section  */}
+            <div>
+                {/* <Reviews/> */}
             </div>
         </div>
     );
 };
 
-export default Home; <h1>this is home</h1>
+export default Home;
