@@ -16,7 +16,7 @@ const Home = () => {
         <div className=''>
             <Header/>
             <div className='top-section top-banner'>
-                <h1 className='md:text-6xl sm:text-sm text-rose-500  text-center '>
+                <h1 className='md:text-6xl sm:text-sm text-white text-center '>
                     Capture Your <br /> <span className='text-color'> Beautyfull Moments </span>
                 </h1>
                 <div className='flex justify-center p-12'>

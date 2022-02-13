@@ -9,7 +9,7 @@ const ManageOrder = () => {
     // const {id}=useParams;
 
     useEffect(() => {
-        fetch('http://localhost:5001/orders')
+        fetch('https://obscure-beyond-83290.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [user.email])
@@ -17,7 +17,7 @@ const ManageOrder = () => {
     const cancelOrder = (id) => {
         const proced = window.confirm(' Do you want to cancel order?');
         if (proced) {
-            const url = `http://localhost:5001/orders/${id}`;
+            const url = `https://obscure-beyond-83290.herokuapp.com/orders/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -35,7 +35,7 @@ const ManageOrder = () => {
     const updateOrderStatus = (id) => {
         const proceed = window.confirm('Do Want To Update Order Status?');
         if (proceed) {
-            const url = `http://localhost:5001/orders/${id}`;
+            const url = `https://obscure-beyond-83290.herokuapp.com/orders/${id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {

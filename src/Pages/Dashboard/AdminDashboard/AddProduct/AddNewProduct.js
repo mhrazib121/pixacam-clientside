@@ -7,7 +7,7 @@ import './AddNewProduct.css'
 const AddNewProduct = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        axios.post('http://localhost:5001/products', data)
+        axios.post('https://obscure-beyond-83290.herokuapp.com/products', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Added new service successfully');

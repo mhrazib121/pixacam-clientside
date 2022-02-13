@@ -7,7 +7,7 @@ import useProducts from '../../Hooks/useProducts';
 import './PlaceOrder.css'
 
 const PlaceOrder = () => {
-    const {user}=useAuth()
+    const { user } = useAuth()
     const { register, handleSubmit, reset } = useForm();
     const [products] = useProducts();
     const { id } = useParams();
@@ -22,7 +22,7 @@ const PlaceOrder = () => {
         data.status = 'Pending';
         console.log(productData)
 
-        axios.post('http://localhost:5001/orders', data)
+        axios.post('https://obscure-beyond-83290.herokuapp.com/orders', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Placing order successfully');
@@ -42,7 +42,7 @@ const PlaceOrder = () => {
             <section className='col-lg-6  my-4 mx-auto form-design text-center'>
                 <h3> Provide Your Information:</h3>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <input {...register("firstName")} value={user.displayName}/> <br />
+                    <input {...register("firstName")} value={user.displayName} /> <br />
                     <input type='email' {...register("email")} value={user.email} /> <br />
                     <input type='date' {...register("orderDate")} /> <br />
                     <input type='number' {...register("phone")} /> <br />

@@ -12,7 +12,7 @@ const MyOrder = () => {
     const [orders, setOrders] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5001/orders')
+        fetch('https://obscure-beyond-83290.herokuapp.com/orders')
             .then(res => res.json())
             .then(data => {
                 const myOrders = data.filter(order => order.email === user.email);
@@ -20,21 +20,21 @@ const MyOrder = () => {
             })
     }, [user.email])
 
-    const cancelOrder=(id)=>{
+    const cancelOrder = (id) => {
         const proced = window.confirm('Do you want to cancel your order');
-        if(proced){
-            const url =`http://localhost:5001/orders/${id}`
-            fetch(url,{
+        if (proced) {
+            const url = `https://obscure-beyond-83290.herokuapp.com/orders/${id}`
+            fetch(url, {
                 method: 'DELETE'
             })
-            .then(res=>res.json())
-            .then(data=>{
-                if(data.deletedCount>0){
-                    alert('Successfully Cancel Your Order');
-                    const remainigOrders = orders.filter(order=> order._id !==id);
-                    setOrders(remainigOrders);
-                }
-            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        alert('Successfully Cancel Your Order');
+                        const remainigOrders = orders.filter(order => order._id !== id);
+                        setOrders(remainigOrders);
+                    }
+                })
         }
     }
 
