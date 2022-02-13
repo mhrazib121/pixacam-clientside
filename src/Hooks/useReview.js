@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const useReview = () => {
     const [reviews, setReviews]=useState([])
     useEffect(() => {
-        fetch('data.JSON')
+        fetch('http://localhost:5001/reviews')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])

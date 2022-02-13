@@ -1,26 +1,28 @@
 import React from 'react';
 import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Card, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { Avatar, Rating } from '@mui/material';
 
 const ReviewCard = (props) => {
-    const {img, serviceName, fee} = props.review;
-    
+    const { img, customerName, feedback, rating } = props.review;
+
     return (
-        <div>
-            <div className='card-design'>
-                <div>
-                    <img src={img} alt="" />
-                </div>
-                <div>
-                    <h4 className='text-color text-center'> {serviceName}</h4>
-                    <p> Description : Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugiat maiores sapiente maxime harum, dolorum molestias?</p>
-                    <div>
-                        <button className='btn-all'>Buy Now</button>
-                        <p>{fee}</p>
-                    </div>
+        <div className='card-design shadow-2xl m-3 mb-5'>
+            <div className='p-3 flex justify-center'>
+                <Avatar
+                    alt="Remy Sharp"
+                    src={img}
+                    sx={{ width: 85, height: 85 }}
+                />
+            </div>
+            <div className='m-2'>
+                <h4 className='text-color text-center p-2'> {customerName}</h4>
+                <p className='text-center p-2'> {feedback}</p>
+                <div className='flex justify-center p-2 pb-4'>
+                <Rating  name="read-only" value={rating} readOnly />
                 </div>
             </div>
         </div>

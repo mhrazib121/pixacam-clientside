@@ -56,7 +56,7 @@ const Dashboard = (props) => {
                         </ListItemText>
                     </ListItem>
                 </Link>
-                {/* <Link style={{ textDecoration: 'none', color: '#FF4A17' }} to="/dashboard">
+                <Link style={{ textDecoration: 'none', color: '#FF4A17' }} to="/dashboard">
                     <ListItem button>
                         <ListItemIcon sx={{ color: 'black' }}>
                             <DashboardIcon />
@@ -65,7 +65,7 @@ const Dashboard = (props) => {
                             <h6 className="my-0">Dashboard</h6>
                         </ListItemText>
                     </ListItem>
-                </Link> */}
+                </Link>
                 <Link style={{ textDecoration: 'none', color: '#FF4A17' }} to="/products">
                     <ListItem button>
                         <ListItemIcon sx={{ color: 'black' }}>
@@ -86,13 +86,35 @@ const Dashboard = (props) => {
                         </ListItemText>
                     </ListItem>
                 </Link>
-                <Link style={{ textDecoration: 'none', color: '#FF4A17' }} to="/manageorder">
+                <Link style={{ textDecoration: 'none', color: '#FF4A17' }} to={`dashboard/reviewprovide`}>
                     <ListItem button>
                         <ListItemIcon sx={{ color: 'black' }}>
                             <AddShoppingCartIcon />
                         </ListItemIcon>
                         <ListItemText >
-                            <h6 className="my-0">Manage My Order</h6>
+                            <h6 className="my-0">Review</h6>
+                        </ListItemText>
+                    </ListItem>
+                </Link>
+                <Link style={{ textDecoration: 'none', color: '#FF4A17' }} to={`dashboard/manageorder`}>
+                    <ListItem button>
+                        <ListItemIcon sx={{ color: 'black' }}>
+                            <AddShoppingCartIcon />
+                        </ListItemIcon>
+                        <ListItemText >
+                            <h6 className="my-0">Manage All Order</h6>
+                        </ListItemText>
+                    </ListItem>
+                </Link>
+
+                {/* Admin Section  */}
+                <Link style={{ textDecoration: 'none', color: '#FF4A17' }} to={`dashboard/addnewproduct`}>
+                    <ListItem button>
+                        <ListItemIcon sx={{ color: 'black' }}>
+                            <AddShoppingCartIcon />
+                        </ListItemIcon>
+                        <ListItemText >
+                            <h6 className="my-0">Add New Product</h6>
                         </ListItemText>
                     </ListItem>
                 </Link>

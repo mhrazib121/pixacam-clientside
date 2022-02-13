@@ -11,6 +11,15 @@ const Reviews = () => {
         dots: true,
         infinite: true,
         slidesToShow: 3,
+        responsive:[
+            {
+                breakpoint:786,
+                settings:{
+                    slidesToShow:1,
+                    slidesToScroll:1
+                }
+            }
+        ],
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
@@ -18,10 +27,9 @@ const Reviews = () => {
     };
 
     return (
-        <div>
-            <h1>dfjoidjlkgjfdjg</h1>
-            <h2>Pause On Hover</h2>
-            <Slider {...settings}>
+        <div className='container'>
+            <h1 className='text-4xl font-bold text-center my-5'>Customer <span className='text-color'>Opinion</span></h1>
+            <Slider {...settings} className=" my-5 md:gap-4 justufy-center">
                 {
                     reviews.map(review => <ReviewCard key={review._id} review={review}></ReviewCard>)
                 }

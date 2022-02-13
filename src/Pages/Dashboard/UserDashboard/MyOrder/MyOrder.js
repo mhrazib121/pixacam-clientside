@@ -20,15 +20,32 @@ const MyOrder = () => {
             })
     }, [user.email])
 
+    const cancelOrder=(id)=>{
+        const proced = window.confirm('Do you want to cancel your order');
+        if(proced){
+            const url =`http://localhost:5001/orders/${id}`
+            fetch(url,{
+                method: 'DELETE'
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                if(data.deletedCount>0){
+                    alert('Successfully Cancel Your Order');
+                    const remainigOrders = orders.filter(order=> order._id !==id);
+                    setOrders(remainigOrders);
+                }
+            })
+        }
+    }
+
 
     return (
         <div>
-            {/* <Dashboard></Dashboard> */}
-            <div className="container">
+            <div className="container mb-5">
                 <h1 className='text-4xl font-bold text-center my-5'>My <span className='text-color'>Orders</span></h1>
                 <Row xs={1} md={3} className="g-4">
                     {
-                        orders.map(order => <MyOrderCard key={order._id} order={order}></MyOrderCard>)
+                        orders.map(order => <MyOrderCard key={order._id} order={order} cancelOrder={cancelOrder}></MyOrderCard>)
                     }
                 </Row>
             </div>

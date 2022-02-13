@@ -7,8 +7,11 @@ import Reviews from '../Reviews/Reviews';
 import Products from '../Products/Products';
 import Header from '../../Shared/Header/Header';
 import Footer from '../../Shared/Footer/Footer';
+import useProducts from '../../Hooks/useProducts';
+import ProductCard from '../../Card/ProductCard/ProductCard';
 
 const Home = () => {
+    const [products]=useProducts()
     return (
         <div className=''>
             <Header/>
@@ -21,7 +24,17 @@ const Home = () => {
                 </div>
             </div>
 
-            <Products/>
+            {/* <Products/> */}
+
+            <div className="container">
+                <h1 className='text-4xl font-bold text-center my-5'>Our <span className='text-color'>Products</span></h1>
+                <div className="sm:grid md:grid-cols-3 my-4 md:gap-4 grid-cols-2 sm:gap-1 justufy-center container">
+
+                {
+                        products.map(product => <ProductCard key={product._id} product={product} ></ProductCard>)
+                    }
+                </div>
+            </div>
 
             {/* Feature  */}
 
@@ -63,7 +76,7 @@ const Home = () => {
 
             {/* Reviews Section  */}
             <div>
-                {/* <Reviews/> */}
+                <Reviews/>
             </div>
             <Footer/>
         </div>

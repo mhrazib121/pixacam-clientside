@@ -12,8 +12,10 @@ import RequireAuth from './Pages/RequireAuth/RequireAuth';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import Products from './Pages/Products/Products';
 import MyOrder from './Pages/Dashboard/UserDashboard/MyOrder/MyOrder';
-import ManageOrder from './Pages/Dashboard/UserDashboard/ManageOrder/ManageOrder';
+import ManageOrder from './Pages/Dashboard/AdminDashboard/ManageOrder/ManageOrder';
 import DashboardHome from './Pages/Dashboard/DashboardHome/DashboardHome';
+import AddNewProduct from './Pages/Dashboard/AdminDashboard/AddProduct/AddNewProduct';
+import ReviewProvide from './Pages/Dashboard/UserDashboard/ReviewProvide/ReviewProvide';
 
 function App() {
   return (
@@ -29,7 +31,9 @@ function App() {
             <Route path='/dashboard' element={<Dashboard />} >
               <Route exact path="/dashboard" element={<DashboardHome></DashboardHome>}></Route>
               <Route path='/dashboard/dashboard/myorder' element={<MyOrder />} />
-              <Route path='/dashboard/manageorder' element={<ManageOrder />} />
+              <Route path='/dashboard/dashboard/reviewprovide' element={<ReviewProvide/>} />
+              <Route path='/dashboard/dashboard/manageorder' element={<ManageOrder />} />
+              <Route path='/dashboard/dashboard/addnewproduct' element={<AddNewProduct />} />
             </Route>
 
             <Route path='products' element={<Products />} />
