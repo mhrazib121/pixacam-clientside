@@ -7,7 +7,7 @@
     color: #FF091F;
     text-transform: uppercase;
 }
-/* .link-design::after{
+.header-de Link::after{
     content: "";
     background-color: #9fb205;
     position: absolute;
@@ -16,8 +16,8 @@
     left: 0;
     bottom: -10px;
     transition: .5s;
-} */
-.link-design:hover::after {
+}
+.header-de Link:hover::after {
     width: 100%;
     
  }
@@ -26,9 +26,6 @@
     color: #FF091F;
     margin-right: auto;
     z-index: 1000;
-}
-.header-de{
-    color:#FF091F;
 }
 .header-de Link:hover{
     color: red;

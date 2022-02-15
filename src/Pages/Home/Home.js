@@ -9,12 +9,13 @@ import Header from '../../Shared/Header/Header';
 import Footer from '../../Shared/Footer/Footer';
 import useProducts from '../../Hooks/useProducts';
 import ProductCard from '../../Card/ProductCard/ProductCard';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
-    const [products]=useProducts()
+    const [products] = useProducts()
     return (
         <div className=''>
-            <Header/>
+            <Header />
             <div className='top-section top-banner'>
                 <h1 className='md:text-6xl sm:text-sm text-white text-center '>
                     Capture Your <br /> <span className='text-color'> Beautyfull Moments </span>
@@ -26,59 +27,62 @@ const Home = () => {
 
             {/* <Products/> */}
 
-            <div className="container">
+            <div className="container my-5">
                 <h1 className='text-4xl font-bold text-center my-5'>Our <span className='text-color'>Products</span></h1>
-                <div className="sm:grid md:grid-cols-3 my-4 md:gap-4 grid-cols-2 sm:gap-1 justufy-center container">
+                <div className="sm:grid md:grid-cols-3 my-4 md:gap-4 grid-cols-2 sm:gap-1 justufy-center container ">
 
-                {
-                        products.map(product => <ProductCard key={product._id} product={product} ></ProductCard>)
+                    {
+                        products.slice(0, 6).map(product => <ProductCard key={product._id} product={product} ></ProductCard>)
                     }
                 </div>
+                <Link className='text-color link-d flex justify-end text-lg pe-4 ms-auto' to={`/products`}> More Products</Link>
             </div>
 
             {/* Feature  */}
 
-            
-            <hr />
-            <div className="sm:grid md:grid-cols-4 my-4 md:gap-4 grid-cols-2 sm:gap-1 justufy-center container">
-              
-                <div className='text-base flex items-center my-4  '>
-                    <span className='text-5xl text-color'>{ <FontAwesomeIcon icon={faTruck} />}</span>
-                    <div className='mx-3'>
-                        <h3 className='text-xl font-bold text-color'>Free Shipping</h3>
-                    <p className='text-base'>Place your order anytime to get at your door</p>
+
+            <div className='mt-5'>
+                <hr />
+                <div className="sm:grid md:grid-cols-4 my-4 md:gap-4 grid-cols-2 sm:gap-1 justufy-center container">
+
+                    <div className='text-base flex items-center my-4  '>
+                        <span className='text-5xl text-color'>{<FontAwesomeIcon icon={faTruck} />}</span>
+                        <div className='mx-3'>
+                            <h3 className='text-xl font-bold text-color'>Free Shipping</h3>
+                            <p className='text-base'>Place your order anytime to get at your door</p>
+                        </div>
                     </div>
-                </div>
-                <div  className='text-base flex items-center my-4  '>
-                    <span className='text-5xl text-color'>{<FontAwesomeIcon icon={faAward} />}</span>
-                    <div className='mx-3'>
-                        <h3 className='text-xl font-bold text-color'> Quality Products</h3>
-                        <p> We Deliver branded product allaways </p>
+                    <div className='text-base flex items-center my-4  '>
+                        <span className='text-5xl text-color'>{<FontAwesomeIcon icon={faAward} />}</span>
+                        <div className='mx-3'>
+                            <h3 className='text-xl font-bold text-color'> Quality Products</h3>
+                            <p> We Deliver branded product allaways </p>
+                        </div>
                     </div>
-                </div>
-                <div className='text-base flex items-center my-4  '>
-                    <span className='text-5xl text-color'>{<FontAwesomeIcon icon={faUserShield} />}</span>
-                   <div className='mx-3'>
-                   <h3 className='text-xl font-bold text-color'> Secure Payment</h3>
-                        <p>Our payment system is highly Confeidential</p>
-                   </div>
-                </div>
-                <div className='text-base flex items-center my-4  '>
-                    <span className='text-5xl text-color'>{<FontAwesomeIcon icon={faArrowRightArrowLeft} />}</span>
-                    <div className='mx-3'>
-                    <h3 className='text-xl font-bold text-color'> 5 Days return policy</h3>
-                        <p> Easy to return your products </p>
+                    <div className='text-base flex items-center my-4  '>
+                        <span className='text-5xl text-color'>{<FontAwesomeIcon icon={faUserShield} />}</span>
+                        <div className='mx-3'>
+                            <h3 className='text-xl font-bold text-color'> Secure Payment</h3>
+                            <p>Our payment system is highly Confeidential</p>
+                        </div>
                     </div>
+                    <div className='text-base flex items-center my-4  '>
+                        <span className='text-5xl text-color'>{<FontAwesomeIcon icon={faArrowRightArrowLeft} />}</span>
+                        <div className='mx-3'>
+                            <h3 className='text-xl font-bold text-color'> 5 Days return policy</h3>
+                            <p> Easy to return your products </p>
+                        </div>
+                    </div>
+
                 </div>
-               
+                <hr />
             </div>
-            <hr />
 
             {/* Reviews Section  */}
             <div>
-                <Reviews/>
+                <Reviews />
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 };
