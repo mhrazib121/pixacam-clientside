@@ -33,7 +33,10 @@ const Header = () => {
                                         <button className='btn-all mx-2' onClick={logOut} > Logout </button>
                                     </>
                                     :
+                                    <>
                                     <button className='btn-all' > <Link className='link-de' to='/login'> Login </Link> </button>
+                                    <button className='btn-all' > <Link className='link-de' to='/signup'> Sign Up </Link> </button>
+                                    </>
                             }
                         </Nav>
                     </Navbar.Collapse>

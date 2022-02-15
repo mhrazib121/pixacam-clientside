@@ -1,51 +1,41 @@
-import { TextField } from '@mui/material';
 import React, { useState } from 'react';
-import useAuth from '../../../Hooks/useAuth/useAuth';
+import { useForm } from 'react-hook-form';
+import useAuth from '../../../../Hooks/useAuth';
 
 const MakeAdmin = () => {
-    const { allContext } = useAuth();
-    const { ColorButton } = allContext;
     const [email, setEmail] = useState('');
-
-    const handleOnChange = e => {
-        setEmail(e.target.value);
-    }
-    const handleAdminSubmit = e => {
-        e.preventDefault()
-        const proceed = window.confirm('Are You Sure, You Want To Make Admin');
-        if (proceed) {
-            const user = { email }
-            fetch('https://obscure-beyond-83290.herokuapp.com/users/admin', {
-                method: 'PUT',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(user)
+    const { register, handleSubmit, reset } = useForm();
+    const onSubmit = data => {
+        console.log(data)
+        reset();
+        setEmail(data);
+        fetch('https://obscure-beyond-83290.herokuapp.com/users/admin', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
             })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.modifiedCount) {
-                        alert('Make Admin Successfully');
-                        setEmail('');
-                    }
-                })
-
-        }
     }
     return (
-        <div style={{ marginTop: '280px', marginBottom: '280px' }} className="text-center">
-            <h1 className="mb-5">Make an <span className="text-color">Admin</span></h1>
-            <form onSubmit={handleAdminSubmit}>
-                <TextField
-                    sx={{ width: '40%' }}
-                    id="standard-basic"
-                    label="Email"
-                    onChange={handleOnChange}
-                    type="email"
-                    value={email}
-                    autoComplete="email" variant="standard" />
-                <ColorButton type="submit" variant="contained">MAKE ADMIN</ColorButton>
-            </form>
+        <div className=' box-design'>
+            <h1 className='text-uppercase text-white text-center text-5xl pt-5'>Make <span className='text-color '>Admin</span></h1>
+            <div className="">
+
+                <div className='flex justify-center'>
+                    <div className='d-from'>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <input className=" p-2" type="email" placeholder="Enter Email address" {...register("email")} />
+                            <br />
+                            <input className=" mt-3" type="submit" value="Admin" />
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

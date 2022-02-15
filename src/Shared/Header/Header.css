@@ -7,7 +7,7 @@
     color: #FF091F;
     text-transform: uppercase;
 }
-.link-design::after{
+/* .link-design::after{
     content: "";
     background-color: #9fb205;
     position: absolute;
@@ -16,7 +16,7 @@
     left: 0;
     bottom: -10px;
     transition: .5s;
-}
+} */
 .link-design:hover::after {
     width: 100%;
     

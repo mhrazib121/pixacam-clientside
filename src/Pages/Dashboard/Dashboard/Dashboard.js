@@ -33,6 +33,8 @@ const drawerWidth = 240;
 
 const Dashboard = (props) => {
     const { user, admin } = useAuth();
+    console.log(user.email)
+    console.log(admin)
 
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -76,48 +78,69 @@ const Dashboard = (props) => {
                         </ListItemText>
                     </ListItem>
                 </Link>
-                <Link style={{ textDecoration: 'none', color: '#FF4A17' }} to={`dashboard/myorder`}>
-                    <ListItem button>
-                        <ListItemIcon sx={{ color: 'black' }}>
-                            <AddShoppingCartIcon />
-                        </ListItemIcon>
-                        <ListItemText >
-                            <h6 className="my-0">My Order</h6>
-                        </ListItemText>
-                    </ListItem>
-                </Link>
-                <Link style={{ textDecoration: 'none', color: '#FF4A17' }} to={`dashboard/reviewprovide`}>
-                    <ListItem button>
-                        <ListItemIcon sx={{ color: 'black' }}>
-                            <AddShoppingCartIcon />
-                        </ListItemIcon>
-                        <ListItemText >
-                            <h6 className="my-0">Review</h6>
-                        </ListItemText>
-                    </ListItem>
-                </Link>
-                <Link style={{ textDecoration: 'none', color: '#FF4A17' }} to={`dashboard/manageorder`}>
-                    <ListItem button>
-                        <ListItemIcon sx={{ color: 'black' }}>
-                            <AddShoppingCartIcon />
-                        </ListItemIcon>
-                        <ListItemText >
-                            <h6 className="my-0">Manage All Order</h6>
-                        </ListItemText>
-                    </ListItem>
-                </Link>
+                {
+                    !admin ?
+                        <>
+                            <Link style={{ textDecoration: 'none', color: '#FF4A17' }} to={`dashboard/myorder`}>
+                                <ListItem button>
+                                    <ListItemIcon sx={{ color: 'black' }}>
+                                        <AddShoppingCartIcon />
+                                    </ListItemIcon>
+                                    <ListItemText >
+                                        <h6 className="my-0">My Order</h6>
+                                    </ListItemText>
+                                </ListItem>
+                            </Link>
+                            <Link style={{ textDecoration: 'none', color: '#FF4A17' }} to={`dashboard/reviewprovide`}>
+                                <ListItem button>
+                                    <ListItemIcon sx={{ color: 'black' }}>
+                                        <AddShoppingCartIcon />
+                                    </ListItemIcon>
+                                    <ListItemText >
+                                        <h6 className="my-0">Review</h6>
+                                    </ListItemText>
+                                </ListItem>
+                            </Link>
 
-                {/* Admin Section  */}
-                <Link style={{ textDecoration: 'none', color: '#FF4A17' }} to={`dashboard/addnewproduct`}>
-                    <ListItem button>
-                        <ListItemIcon sx={{ color: 'black' }}>
-                            <AddShoppingCartIcon />
-                        </ListItemIcon>
-                        <ListItemText >
-                            <h6 className="my-0">Add New Product</h6>
-                        </ListItemText>
-                    </ListItem>
-                </Link>
+                        </>
+
+                        :
+                        <>
+                            {/* Admin Section  */}
+                            <Link style={{ textDecoration: 'none', color: '#FF4A17' }} to={`dashboard/manageorder`}>
+                                <ListItem button>
+                                    <ListItemIcon sx={{ color: 'black' }}>
+                                        <AddShoppingCartIcon />
+                                    </ListItemIcon>
+                                    <ListItemText >
+                                        <h6 className="my-0">Manage All Order</h6>
+                                    </ListItemText>
+                                </ListItem>
+                            </Link>
+
+
+                            <Link style={{ textDecoration: 'none', color: '#FF4A17' }} to={`dashboard/addnewproduct`}>
+                                <ListItem button>
+                                    <ListItemIcon sx={{ color: 'black' }}>
+                                        <AddShoppingCartIcon />
+                                    </ListItemIcon>
+                                    <ListItemText >
+                                        <h6 className="my-0">Add New Product</h6>
+                                    </ListItemText>
+                                </ListItem>
+                            </Link>
+                            <Link style={{ textDecoration: 'none', color: '#FF4A17' }} to={`dashboard/makeadmin`}>
+                                <ListItem button>
+                                    <ListItemIcon sx={{ color: 'black' }}>
+                                        <AddShoppingCartIcon />
+                                    </ListItemIcon>
+                                    <ListItemText >
+                                        <h6 className="my-0">Make Admin</h6>
+                                    </ListItemText>
+                                </ListItem>
+                            </Link>
+                        </>
+                }
             </List>
             <Divider />
             <List>
@@ -145,7 +168,9 @@ const Dashboard = (props) => {
                         ml: { sm: `${drawerWidth}px` },
                     }}
                 >
-                    <Toolbar>
+                    <Toolbar 
+                     style={{backgroundColor:'#FF4A17'}}
+                     >
                         <IconButton
                             color="inherit"
                             aria-label="open drawer"
@@ -156,7 +181,7 @@ const Dashboard = (props) => {
                             <MenuIcon />
                         </IconButton>
                         <Typography variant="h6" noWrap component="div">
-                            Responsive drawer
+                            Dashboard
                         </Typography>
                     </Toolbar>
                 </AppBar>
@@ -201,23 +226,6 @@ const Dashboard = (props) => {
                     <Footer></Footer>
                 </Box>
             </Box>
-
-
-
-
-
-
-
-
-
-
-            {/* {admin && user.email?
-            <AdminHeader></AdminHeader>
-            :
-            <UserHeader></UserHeader>
-            
-            }
-            <h1 className="text-center text-primary mt-5"> Welcome To Deshboard </h1> */}
         </div>
     );
 };

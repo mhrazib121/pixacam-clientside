@@ -16,6 +16,8 @@ import ManageOrder from './Pages/Dashboard/AdminDashboard/ManageOrder/ManageOrde
 import DashboardHome from './Pages/Dashboard/DashboardHome/DashboardHome';
 import AddNewProduct from './Pages/Dashboard/AdminDashboard/AddProduct/AddNewProduct';
 import ReviewProvide from './Pages/Dashboard/UserDashboard/ReviewProvide/ReviewProvide';
+import SignUp from './Pages/SignUp/SignUp';
+import MakeAdmin from './Pages/Dashboard/AdminDashboard/MakeAdmin/MakeAdmin';
 
 function App() {
   return (
@@ -34,10 +36,12 @@ function App() {
               <Route path='/dashboard/dashboard/reviewprovide' element={<ReviewProvide/>} />
               <Route path='/dashboard/dashboard/manageorder' element={<ManageOrder />} />
               <Route path='/dashboard/dashboard/addnewproduct' element={<AddNewProduct />} />
+              <Route path='/dashboard/dashboard/makeadmin' element={<RequireAuth><MakeAdmin /></RequireAuth>} />
             </Route>
 
             <Route path='products' element={<Products />} />
             <Route path='login' element={<Login />} />
+            <Route path='signup' element={<SignUp />} />
             <Route path='*' element={<Error />} />
           </Routes>
 
