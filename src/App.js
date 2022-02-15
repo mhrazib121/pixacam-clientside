@@ -30,12 +30,12 @@ function App() {
             <Route path='home' element={<Home />} />
             <Route path='placeorder/:id' element={<RequireAuth><PlaceOrder /></RequireAuth>} />
             <Route path='about' element={<About />} />
-            <Route path='/dashboard' element={<Dashboard />} >
-              <Route exact path="/dashboard" element={<DashboardHome></DashboardHome>}></Route>
+            <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>} >
+              <Route exact path="/dashboard" element={<RequireAuth><DashboardHome></DashboardHome></RequireAuth>}></Route>
               <Route path='/dashboard/dashboard/myorder' element={<MyOrder />} />
-              <Route path='/dashboard/dashboard/reviewprovide' element={<ReviewProvide/>} />
-              <Route path='/dashboard/dashboard/manageorder' element={<ManageOrder />} />
-              <Route path='/dashboard/dashboard/addnewproduct' element={<AddNewProduct />} />
+              <Route path='/dashboard/dashboard/reviewprovide' element={<RequireAuth><ReviewProvide/></RequireAuth>} />
+              <Route path='/dashboard/dashboard/manageorder' element={<RequireAuth><ManageOrder /></RequireAuth>} />
+              <Route path='/dashboard/dashboard/addnewproduct' element={<RequireAuth><AddNewProduct /></RequireAuth>} />
               <Route path='/dashboard/dashboard/makeadmin' element={<RequireAuth><MakeAdmin /></RequireAuth>} />
             </Route>
 

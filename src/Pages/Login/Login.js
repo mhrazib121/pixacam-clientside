@@ -68,7 +68,7 @@ const Login = () => {
                                 <span className="d-block text-danger">
 
                                 </span>
-                                <h6 className='text-xl text-color'>Don’t have an account? <Link className='link-d' to='/register'>Register Now</Link></h6>
+                                <h6 className='text-xl text-color'>Don’t have an account? <Link className='link-d' to='/signup'>Register Now</Link></h6>
                             </div>
                         </div>
 
