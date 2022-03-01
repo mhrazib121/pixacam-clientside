@@ -30,12 +30,12 @@ const Header = () => {
                                     <>
                                         <HashLink className='mx-3 link-design link-d' smooth to="/dashboard#"> Dashboard</HashLink>
                                         <p className='mx-3'>  {user.displayName} </p>
-                                        <button className='btn-all mx-2' onClick={logOut} > Logout </button>
+                                        <button className='btn-all mx-3' onClick={logOut} > Logout </button>
                                     </>
                                     :
                                     <>
-                                    <button className='btn-all' > <Link className='link-de' to='/login'> Login </Link> </button>
-                                    <button className='btn-all' > <Link className='link-de' to='/signup'> Sign Up </Link> </button>
+                                    <button className='btn-all mx-2' > <Link className='link-de me-2' to='/login'> Login </Link> </button>
+                                    <button className='btn-all mx-2' > <Link className='link-de me-2' to='/signup'> Sign Up </Link> </button>
                                     </>
                             }
                         </Nav>

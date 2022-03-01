@@ -32,7 +32,7 @@ function App() {
             <Route path='about' element={<About />} />
             <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>} >
               <Route exact path="/dashboard" element={<RequireAuth><DashboardHome></DashboardHome></RequireAuth>}></Route>
-              <Route path='/dashboard/dashboard/myorder' element={<MyOrder />} />
+              <Route path='/dashboard/dashboard/myorder' element={<RequireAuth><MyOrder /></RequireAuth>} />
               <Route path='/dashboard/dashboard/reviewprovide' element={<RequireAuth><ReviewProvide/></RequireAuth>} />
               <Route path='/dashboard/dashboard/manageorder' element={<RequireAuth><ManageOrder /></RequireAuth>} />
               <Route path='/dashboard/dashboard/addnewproduct' element={<RequireAuth><AddNewProduct /></RequireAuth>} />
