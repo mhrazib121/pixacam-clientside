@@ -21,11 +21,11 @@ const Home = () => {
                     Capture Your <br /> <span className='text-color'> Beautyfull Moments </span>
                 </h1>
                 <div className='flex justify-center p-12'>
-                    <Button className='btn-all '> Explore Now</Button>
+                    <Button className='explore-btn '> Explore Now</Button>
                 </div>
             </div>
 
-            {/* <Products/> */}
+            {/* Products */}
 
             <div className="container my-5">
                 <h1 className='text-4xl font-bold text-center my-5'>Our <span className='text-color'>Products</span></h1>
