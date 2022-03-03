@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import useProducts from '../../Hooks/useProducts';
 import Footer from '../../Shared/Footer/Footer';
@@ -12,10 +13,11 @@ const PlaceOrder = () => {
     const { user } = useAuth()
     const { register, handleSubmit, reset } = useForm();
     const [products] = useProducts();
+    const location = useLocation();
+    const navigate = useNavigate();
     const { id } = useParams();
 
-    console.log(products)
-
+    const redirect_url = location.state?.from || '/dashboard/dashboard/myorder';
 
     const productData = products.find(product => product._id === id)
     console.log(productData);
@@ -29,7 +31,7 @@ const PlaceOrder = () => {
                 if (res.data.insertedId) {
                     alert('Placing order successfully');
                     reset();
-                    // history.push('/mybooking');
+                    navigate(redirect_url)
                 }
             })
     }
@@ -55,7 +57,7 @@ const PlaceOrder = () => {
                     </form>
                 </section>
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 };

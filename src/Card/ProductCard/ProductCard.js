@@ -4,8 +4,6 @@ import './ProductCard.css'
 
 const ProductCard = (props) => {
     const {_id,id, img, productName, price } = props.product;
-    console.log(_id)
-    console.log(img)
     return (
         <div data-aos="zoom-in-down" data-aos-delay="500" data-aos-easing="ease-in-sine">
             <div className='card-design shadow-2xl m-3 '>
