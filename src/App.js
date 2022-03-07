@@ -18,6 +18,7 @@ import AddNewProduct from './Pages/Dashboard/AdminDashboard/AddProduct/AddNewPro
 import ReviewProvide from './Pages/Dashboard/UserDashboard/ReviewProvide/ReviewProvide';
 import SignUp from './Pages/SignUp/SignUp';
 import MakeAdmin from './Pages/Dashboard/AdminDashboard/MakeAdmin/MakeAdmin';
+import Blog from './Pages/Blog/Blog';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path='home' element={<Home />} />
             <Route path='placeorder/:id' element={<RequireAuth><PlaceOrder /></RequireAuth>} />
             <Route path='about' element={<About />} />
+            <Route path='blog' element={<Blog />} />
             <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>} >
               <Route exact path="/dashboard" element={<RequireAuth><DashboardHome></DashboardHome></RequireAuth>}></Route>
               <Route path='/dashboard/dashboard/myorder' element={<RequireAuth><MyOrder /></RequireAuth>} />

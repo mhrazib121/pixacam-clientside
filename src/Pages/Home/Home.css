@@ -21,6 +21,30 @@
     transition: .5s;
     font-weight: 600;
 }
+.brnad img {
+    width: 150px;
+}
+.brnad img:hover{
+    transform: scale(1.08);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* .offer-section{
+    width: 100%;
+    height: 100%;
+    
+} */
+
+.offer{
+    /* display: block; */
+    overflow: hidden;
+    /* height: 100%; */
+}
+.offer img:hover{
+    transform: scale(1.08);
+    transition: transform 0.3s ease-in-out;
+    object-fit: cover;
+}
 
 @media only screen and (max-width: 600px) {
 .top-section{

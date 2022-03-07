@@ -27,9 +27,9 @@ const Reviews = () => {
     };
 
     return (
-        <div className='container'>
-            <h1 className='text-4xl font-bold text-center my-5'>Customer <span className='text-color'>Opinion</span></h1>
-            <Slider {...settings} className=" my-5 md:gap-4 justufy-center">
+        <div className='containe' >
+            <h1 className='text-4xl font-bold text-center my-5 uppercase'>Customer <span className='text-color'>Opinion</span></h1>
+            <Slider {...settings} className=" container my-5 md:gap-4 justufy-center">
                 {
                     reviews.map(review => <ReviewCard key={review._id} review={review}></ReviewCard>)
                 }

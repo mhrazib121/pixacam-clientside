@@ -1,11 +1,9 @@
 .card-design{
     border-radius: 4%;
-    /* z-index: -1000; */
 }
 .card-design:hover{
     transform: scale(1.08);
     transition: transform 0.3s ease-in-out;
-    /* position: absolute; */
 }
 .img-edit{
     width: 100%;

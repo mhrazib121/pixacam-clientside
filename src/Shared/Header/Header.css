@@ -1,39 +1,38 @@
 .logo-design{
-    /* height: 25%; */
     width: 13%;
 }
 .link-design{
-    text-decoration: none;
-    color: #FF091F;
     text-transform: uppercase;
+    padding: 5px 10px;
+    position: relative;
+    color: #FF4A17;
 }
-.header-de Link::after{
-    content: "";
-    background-color: #9fb205;
-    position: absolute;
-    height: 3px;
-    width:0;
-    left: 0;
-    bottom: -10px;
-    transition: .5s;
+.link-design:hover{
+    color: white;  
 }
-.header-de Link:hover::after {
-    width: 100%;
-    
- }
+.link-design::after{
+   content: " ";
+   background-color: #FF4A17;
+   /* border-radius: 3px; */
+   transition: 0.7s;
+   height: 0;
+   width: 100%;
+   left: 0;
+   position:absolute;
+}
+.link-design:hover::after{
+    height: 100%;
+    z-index: -1000;
+}
 .header-de{
     background-color: #fdd3c79f;
-    color: #FF091F;
+    color: #FF4A17;
     margin-right: auto;
     z-index: 1000;
-}
-.header-de Link:hover{
-    color: red;
 }
 .text-color{
     color:#FF4A17;
 }
-
 .btn-all{
     padding: .5rem 1rem;
     background-color: #FF4A17;

@@ -8,7 +8,7 @@ const ReviewCard = (props) => {
     const { img, customerName, feedback, rating } = props.review;
 
     return (
-        <div className='card-design shadow-2xl pt-3 m-3 mb-5'>
+        <div className='card-design shadow pt-3 m-3 mb-5'>
             <div className='p-3 flex justify-center'>
                 <Avatar
                     alt="Remy Sharp"

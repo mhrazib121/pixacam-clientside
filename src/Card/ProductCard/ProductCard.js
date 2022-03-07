@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './ProductCard.css'
 
 const ProductCard = (props) => {
-    const {_id,id, img, productName, price } = props.product;
+    const {_id, img, productName, price } = props.product;
     return (
         <div data-aos="zoom-in-down" data-aos-delay="500" data-aos-easing="ease-in-sine">
             <div className='card-design shadow-2xl m-3 '>
