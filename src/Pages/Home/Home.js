@@ -59,6 +59,7 @@ const Home = () => {
                 <h1 className='md:text-6xl sm:text-sm text-white text-center '>
                     Capture Your <br /> <span className='text-color'> Beautyfull Moments </span>
                 </h1>
+                <p className=' md:text-xl sm:text-sm text-white text-center mt-3'> PixaCam is modern camera selling company in the world. We sell brand new and latest camera at a reasonable price. </p>
                 <div className='flex justify-center p-12'>
                     <Button className='explore-btn '> Explore Now</Button>
                 </div>

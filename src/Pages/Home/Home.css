@@ -1,13 +1,12 @@
 .top-banner{
-    background: url(../../images/banner-1.jpg);
+    background:linear-gradient(rgba(9, 27, 87, 0.74), rgba(27, 26, 26, 0.76)), url(../../images/banner-1.jpg);
     background-position: center;
-    /* background-size: cover; */
     background-size:100vw 120vh;
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
 .top-section{
-    padding: 300px;
+    padding: 250px;
 }
 .explore-btn{
     background-color: #FF4A17;  
@@ -28,17 +27,8 @@
     transform: scale(1.08);
     transition: transform 0.3s ease-in-out;
 }
-
-/* .offer-section{
-    width: 100%;
-    height: 100%;
-    
-} */
-
 .offer{
-    /* display: block; */
     overflow: hidden;
-    /* height: 100%; */
 }
 .offer img:hover{
     transform: scale(1.08);

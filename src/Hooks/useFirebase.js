@@ -10,23 +10,31 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState();
     const[admin, setAdmin] = useState();
+    const [userIsLoading, setUserIsLoading] = useState(true);
 
+
+    // User login by using google 
     const auth = getAuth();
     const signinUsingGoogle = () => {
+        setUserIsLoading(true)
     return signInWithPopup(auth, googleprovider)
       
     }
 
+    // User Logout 
     const logOut = ()=>{
+        setUserIsLoading(true)
         signOut (auth)
         .then(()=>{
             setUser({})
         })
+        .finally(()=>setUserIsLoading(false))
     }
 
-    // Creating new user 
 
+    // Creating new user 
     const registerUser=(email, password, name, navigate, location)=>{
+        setUserIsLoading(true)
         createUserWithEmailAndPassword(auth, email, password)
         .then(result=>{
             const newUser = {email, displayName:name};
@@ -40,6 +48,7 @@ const useFirebase = () => {
         .catch(error=>{
             const errorMassage = error.massage;
         })
+        .finally(()=>setUserIsLoading(false))
     }
 
     const loginRegisteredUser =(email, password)=>{
@@ -53,12 +62,18 @@ const useFirebase = () => {
 
         onAuthStateChanged(auth, user=>{
             if(user){
-                setUser(user)
+                setUser(user);
             }
+            else{
+                setUser({});
+            }
+            setUserIsLoading(false)
         })
     }, [auth])
 
+    // User Save
     const saveUser = (email, displayName, method) => {
+        setUserIsLoading(true)
         const user = { email, displayName };
         fetch('https://obscure-beyond-83290.herokuapp.com/users', {
             method: method,
@@ -69,10 +84,14 @@ const useFirebase = () => {
         })
             .then()
     }
+
+    // Admin 
     useEffect(() => {
+        setUserIsLoading(true)
         fetch(`https://obscure-beyond-83290.herokuapp.com/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
+            .finally(()=>setUserIsLoading(false))
     }, [user.email])
 
     return {
