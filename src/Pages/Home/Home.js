@@ -19,19 +19,22 @@ import samasung from '../../images/brand-logo/samasung-logo.png'
 import panasonic from '../../images/brand-logo/panasonic-logo.png'
 import offerBanner6 from '../../images/banner-6.png'
 import offerBanner7 from '../../images/banner-7.png'
+import Stack from '@mui/material/Stack';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Home = () => {
-    const [products] = useProducts();
+    const [products, productsIsLoading] = useProducts();
+    console.log(productsIsLoading)
     var settings = {
         dots: false,
         infinite: true,
         slidesToShow: 4,
-        responsive:[
+        responsive: [
             {
-                breakpoint:786,
-                settings:{
-                    slidesToShow:2,
-                    slidesToScroll:1
+                breakpoint: 786,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
                 }
             }
         ],
@@ -40,7 +43,13 @@ const Home = () => {
         autoplaySpeed: 2000,
         pauseOnHover: true
     };
-    
+    if (productsIsLoading) {
+        return (
+            <Stack sx={{ color: '#FF4A17', justifyContent: 'center', marginTop:'350px',  }} direction="row">
+                <CircularProgress size={80} color="inherit" />
+            </Stack>
+        )
+    }
     return (
         <div className=''>
             <Header />
@@ -58,25 +67,25 @@ const Home = () => {
             {/* Popular Brand */}
 
             <div className='mb-5'>
-            <h1 className='text-2xl font-bold text-center mt-5'>POPULAR <span className='text-color'>BRANDS</span></h1>
-            <Slider {...settings} className=" container md:gap-2 flex justufy-center brnad">
-                <div className=' p-3  '>
-                    <img className='ms-auto me-auto' src={canon} alt="fdg" />
-                </div>
-                <div className= ' p-3'>
-                    <img className='ms-auto me-auto' src={nikon} alt="dfg" />
-                </div>
-                <div  className='p-3'>
-                    <img className='ms-auto me-auto' src={panasonic} alt="dfg" />
-                </div>
-                <div className='p-3'>
-                    <img className='ms-auto me-auto' src={samasung} alt="dfg" />
-                </div>
-                <div className='p-3'>
-                    <img className='ms-auto me-auto' src={philips} alt="dfg" />
-                </div>
-            </Slider>
-        </div>
+                <h1 className='text-2xl font-bold text-center mt-5'>POPULAR <span className='text-color'>BRANDS</span></h1>
+                <Slider {...settings} className=" container md:gap-2 flex justufy-center brnad">
+                    <div className=' p-3  '>
+                        <img className='ms-auto me-auto' src={canon} alt="fdg" />
+                    </div>
+                    <div className=' p-3'>
+                        <img className='ms-auto me-auto' src={nikon} alt="dfg" />
+                    </div>
+                    <div className='p-3'>
+                        <img className='ms-auto me-auto' src={panasonic} alt="dfg" />
+                    </div>
+                    <div className='p-3'>
+                        <img className='ms-auto me-auto' src={samasung} alt="dfg" />
+                    </div>
+                    <div className='p-3'>
+                        <img className='ms-auto me-auto' src={philips} alt="dfg" />
+                    </div>
+                </Slider>
+            </div>
 
             {/* Products Section */}
 

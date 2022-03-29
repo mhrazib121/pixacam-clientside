@@ -31,7 +31,7 @@ const PlaceOrder = () => {
                 if (res.data.insertedId) {
                     alert('Placing order successfully');
                     reset();
-                    navigate(redirect_url)
+                    navigate(redirect_url);
                 }
             })
     }

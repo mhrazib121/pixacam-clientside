@@ -13,7 +13,6 @@
 .link-design::after{
    content: " ";
    background-color: #FF4A17;
-   /* border-radius: 3px; */
    transition: 0.7s;
    height: 0;
    width: 100%;

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import useAuth from '../../Hooks/useAuth';
 import logo from '../../images/logo.png';
-import './Header.css'
+import './Header.css';
 
 const Header = () => {
     const { user, logOut } = useAuth();
@@ -29,7 +29,7 @@ const Header = () => {
                                     <>
                                         <HashLink className='mx-3 link-design ' smooth to="/dashboard#"> Dashboard</HashLink>
                                         <p className='mx-3'>  {user.displayName} </p>
-                                        <button className='btn-all mx-3' onClick={logOut} > Logout </button>
+                                        <button className='btn-all mx-3' onClick={logOut}> Logout</button>
                                     </>
                                     :
                                     <>
