@@ -2,21 +2,21 @@ import { useEffect, useState } from 'react';
 import { getAuth, signInWithPopup, signOut, GoogleAuthProvider, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 
 import initializeAuthentication from '../Firebase/Authentication.init'
-import { useLocation, useNavigate } from 'react-router-dom';
+// import { useLocation, useNavigate } from 'react-router-dom';
 
 initializeAuthentication();
 const useFirebase = () => {
     const googleprovider = new GoogleAuthProvider();
     const [user, setUser] = useState({});
     const [error, setError] = useState();
-    const[admin, setAdmin] = useState();
+    const [admin, setAdmin] = useState();
     const [userIsLoading, setUserIsLoading] = useState(true);
 
+    const auth = getAuth();
 
     // User login by using google 
-    const auth = getAuth();
     const signinUsingGoogle = () => {
-        setUserIsLoading(true)
+        setUserIsLoading(true);
     return signInWithPopup(auth, googleprovider)
       
     }
@@ -34,7 +34,7 @@ const useFirebase = () => {
 
     // Creating new user 
     const registerUser=(email, password, name, navigate, location)=>{
-        setUserIsLoading(true)
+        // setUserIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
         .then(result=>{
             const newUser = {email, displayName:name};
@@ -48,24 +48,19 @@ const useFirebase = () => {
         .catch(error=>{
             const errorMassage = error.massage;
         })
-        .finally(()=>setUserIsLoading(false))
+        // .finally(()=>setUserIsLoading(false))
     }
 
     const loginRegisteredUser =(email, password)=>{
+        setUserIsLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
-        .catch(error=>{
-            const errorMassage = error.massage;
-        })
+        
     }
 
     useEffect(()=>{
-
         onAuthStateChanged(auth, user=>{
             if(user){
                 setUser(user);
-            }
-            else{
-                setUser({});
             }
             setUserIsLoading(false)
         })
@@ -73,7 +68,6 @@ const useFirebase = () => {
 
     // User Save
     const saveUser = (email, displayName, method) => {
-        setUserIsLoading(true)
         const user = { email, displayName };
         fetch('https://obscure-beyond-83290.herokuapp.com/users', {
             method: method,
@@ -87,17 +81,16 @@ const useFirebase = () => {
 
     // Admin 
     useEffect(() => {
-        setUserIsLoading(true)
         fetch(`https://obscure-beyond-83290.herokuapp.com/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
-            .finally(()=>setUserIsLoading(false))
     }, [user.email])
 
     return {
         user,
         admin,
         error,
+        userIsLoading,
         signinUsingGoogle,
         logOut,
         registerUser,

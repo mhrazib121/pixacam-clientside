@@ -6,7 +6,7 @@ const ProductCard = (props) => {
     const {_id, img, productName, price } = props.product;
     return (
         <div data-aos="zoom-in-down" data-aos-delay="500" data-aos-easing="ease-in-sine">
-            <div className='card-design shadow-2xl m-3 '>
+            <div className='card-design shadow-md my-3 mx-2 '>
                 <div className='p-3'>
                     <img className='img-edit' src={img} alt="" />
                 </div>

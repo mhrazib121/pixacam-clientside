@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../../Shared/Header/Header';
-import './Blog.css'
+import './Blog.css';
 import blog1 from '../../images/Blog/blog-item-image-1.jpg';
 import blog2 from '../../images/Blog/blog-item-image-2.jpg';
 import blog3 from '../../images/Blog/blog-item-image-3.jpg';

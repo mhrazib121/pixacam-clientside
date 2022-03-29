@@ -4,11 +4,18 @@ import ProductCard from '../../Card/ProductCard/ProductCard';
 import useProducts from '../../Hooks/useProducts';
 import Footer from '../../Shared/Footer/Footer';
 import Header from '../../Shared/Header/Header';
-// import useProducts from '../../Hooks/useProducts';
+import Stack from '@mui/material/Stack';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Products = () => {
-    const [products] = useProducts();
-    console.log(products)
+    const [products, productsIsLoading] = useProducts();
+    if (productsIsLoading) {
+        return (
+            <Stack sx={{ color: '#FF4A17', justifyContent: 'center', marginTop:'350px',  }} direction="row">
+                <CircularProgress size={80} color="inherit" />
+            </Stack>
+        )
+    }
     return (
         <div>
             <Header />

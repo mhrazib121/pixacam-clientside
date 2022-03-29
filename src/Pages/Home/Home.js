@@ -24,7 +24,6 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 const Home = () => {
     const [products, productsIsLoading] = useProducts();
-    console.log(productsIsLoading)
     var settings = {
         dots: false,
         infinite: true,
@@ -51,7 +50,7 @@ const Home = () => {
         )
     }
     return (
-        <div className=''>
+        <div>
             <Header />
 
             {/* Top Banner */}
@@ -90,10 +89,10 @@ const Home = () => {
 
             {/* Products Section */}
 
-            <div className="container my-5">
+            <div className=" my-5">
                 <h1 className='text-4xl font-bold text-center uppercase'>Featured <span className='text-color'>Products</span></h1>
                 <h3 className='text-xl font-bold text-center mt-2 mb-5'>Select your best choice <span className='text-color'></span></h3>
-                <div className="sm:grid md:grid-cols-3 my-4 md:gap-4 grid-cols-2 sm:gap-1 justufy-center container ">
+                <div className="sm:grid md:grid-cols-3 my-4 md:gap- grid-cols-2 sm:gap-1 justufy-center container ">
 
                     {
                         products.slice(0, 6).map(product => <ProductCard key={product._id} product={product} ></ProductCard>)

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
@@ -6,11 +6,12 @@ import Footer from '../../Shared/Footer/Footer';
 import Header from '../../Shared/Header/Header';
 
 const Login = () => {
-    // const {signinUsingGoogle} = useAuth();
     const { signinUsingGoogle, loginRegisteredUser } = useAuth();
+    const [userIsLoading, setUserIsLoading] = useState(true);
     const location = useLocation();
     const navigate = useNavigate();
     const { register, handleSubmit, reset } = useForm();
+    
 
     const redirect_url = location.state?.from || '/home';
 
@@ -21,6 +22,10 @@ const Login = () => {
             .then(result => {
                 navigate(redirect_url)
             })
+            .catch(error=>{
+                const errorMassage = error.massage;
+            })
+            .finally(()=>setUserIsLoading(false))
     }
 
     const handleGoogleLogin = () => {
@@ -35,6 +40,8 @@ const Login = () => {
             .catch((error) => {
                 // setError(error.massage)
             })
+            .finally(()=>setUserIsLoading(false))
+            
 
     }
     return (
