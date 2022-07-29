@@ -6,6 +6,7 @@ const useProducts = () => {
     useEffect(() => {
         setProductsIsLoading(true)
         fetch('https://obscure-beyond-83290.herokuapp.com/products')
+        // fetch('http://localhost:5001/products')
             .then(res => res.json())
             .then(data => setProducts(data))
             .finally(()=> setProductsIsLoading(false))

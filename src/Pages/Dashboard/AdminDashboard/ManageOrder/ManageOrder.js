@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import ManageOrderCard from '../../../../Card/ManageOrderCard/ManageOrderCard';
 import useAuth from '../../../../Hooks/useAuth';
 
 const ManageOrder = () => {
     const { user } = useAuth();
     const [orders, setOrders] = useState([]);
-    // const {id}=useParams;
 
     useEffect(() => {
         fetch('https://obscure-beyond-83290.herokuapp.com/orders')

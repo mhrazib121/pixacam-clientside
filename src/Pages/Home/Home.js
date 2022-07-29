@@ -21,6 +21,7 @@ import offerBanner6 from '../../images/banner-6.png'
 import offerBanner7 from '../../images/banner-7.png'
 import Stack from '@mui/material/Stack';
 import CircularProgress from '@mui/material/CircularProgress';
+import AddToCard from '../../Notify/AddToCard/AddToCard';
 
 const Home = () => {
     const [products, productsIsLoading] = useProducts();
@@ -44,7 +45,7 @@ const Home = () => {
     };
     if (productsIsLoading) {
         return (
-            <Stack sx={{ color: '#FF4A17', justifyContent: 'center', marginTop:'350px',  }} direction="row">
+            <Stack sx={{ color: '#FF4A17', justifyContent: 'center', marginTop: '350px', }} direction="row">
                 <CircularProgress size={80} color="inherit" />
             </Stack>
         )
@@ -66,7 +67,7 @@ const Home = () => {
 
             {/* Popular Brand */}
 
-            <div className='mb-5'>
+            <div className='mb-5 container'>
                 <h1 className='text-2xl font-bold text-center mt-5'>POPULAR <span className='text-color'>BRANDS</span></h1>
                 <Slider {...settings} className=" container md:gap-2 flex justufy-center brnad">
                     <div className=' p-3  '>
@@ -92,14 +93,15 @@ const Home = () => {
             <div className=" my-5">
                 <h1 className='text-4xl font-bold text-center uppercase'>Featured <span className='text-color'>Products</span></h1>
                 <h3 className='text-xl font-bold text-center mt-2 mb-5'>Select your best choice <span className='text-color'></span></h3>
-                <div className="sm:grid md:grid-cols-3 my-4 md:gap- grid-cols-2 sm:gap-1 justufy-center container ">
+                <div className="sm:grid md:grid-cols-4 my-4 md:gap- grid-cols-2 sm:gap-1 justufy-center container ">
 
                     {
-                        products.slice(0, 6).map(product => <ProductCard key={product._id} product={product} ></ProductCard>)
+                        products.slice(0, 8).map(product => <ProductCard key={product._id} product={product} ></ProductCard>)
                     }
                 </div>
                 <Link className='text-color link-d flex justify-end text-lg pe-4 ms-auto' to={`/products`}> More Products</Link>
             </div>
+
 
             {/* Feature  */}
 
@@ -155,6 +157,15 @@ const Home = () => {
             <div>
                 <Reviews />
             </div>
+
+            {/* Alert  */}
+            {/* <div id='customAlert'>
+                <div id='alert-box'>
+                    <h1> {}</h1>
+                    <button id='alert-close'> ok </button>
+                </div>
+            </div> */}
+            <AddToCard></AddToCard>
             <Footer />
         </div>
     );

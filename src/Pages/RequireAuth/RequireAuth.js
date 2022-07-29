@@ -7,8 +7,6 @@ import CircularProgress from '@mui/material/CircularProgress';
 const RequireAuth = ({ children, ...rest }) => {
     const { user, userIsLoading } = useAuth();
     const location = useLocation();
-    console.log(user)
-    console.log(userIsLoading)
     if (userIsLoading) {
         return <Stack sx={{ color: '#FF4A17', justifyContent: 'center', marginTop: '350px'}} direction="row">
             <CircularProgress size={80} color="inherit"/>

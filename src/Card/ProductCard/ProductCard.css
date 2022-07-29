@@ -7,7 +7,7 @@
 }
 .img-edit{
     width: 100%;
-    height: 220px;
+    height: 200px;
 }
 .link-d{
     text-decoration: none;
@@ -16,4 +16,11 @@
 .link-d:hover{
     text-decoration: none;
     color: black;
+}
+.btn-cart{
+    padding: .3rem .5rem;
+    background-color: #FF4A17;
+    border: solid #FF4A17;
+    border-radius: 5px;
+    color: white;
 }

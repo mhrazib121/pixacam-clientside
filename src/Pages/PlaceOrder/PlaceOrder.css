@@ -4,6 +4,8 @@
     border-radius: 10px;
     width: 300px;
     padding: 10px;
-    /* margin-left: auto;
-    margin-right: auto; */
+}
+
+.alert{
+    background-color: blueviolet;
 }

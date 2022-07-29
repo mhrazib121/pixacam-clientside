@@ -1,3 +1,6 @@
+import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Avatar } from '@mui/material';
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -28,13 +31,20 @@ const Header = () => {
                                 user.email ?
                                     <>
                                         <HashLink className='mx-3 link-design ' smooth to="/dashboard#"> Dashboard</HashLink>
-                                        <p className='mx-3'>  {user.displayName} </p>
-                                        <button className='btn-all mx-3' onClick={logOut}> Logout</button>
+                                        <HashLink className='text-2xl mx-2 ' smooth to="/placeorder"> <FontAwesomeIcon icon={faBasketShopping} /> </HashLink>
+                                        <Avatar
+                                            alt="Remy Sharp"
+                                            src={user.photoURL}
+                                            sx={{ width: 30, height: 30 }}
+                                        />
+
+                                        {/* <p className='mx-3'>  {user.displayName} </p> */}
+                                        <button className='btn-all mx-2' onClick={logOut}> Logout</button>
                                     </>
                                     :
                                     <>
-                                    <button className='btn-all mx-2' > <Link className='link-de me-2' to='/login'> Login </Link> </button>
-                                    <button className='btn-all mx-2' > <Link className='link-de me-2' to='/signup'> Sign Up </Link> </button>
+                                        <button className='btn-all mx-2' > <Link className='link-de me-2' to='/login'> Login </Link> </button>
+                                        <button className='btn-all mx-2' > <Link className='link-de me-2' to='/signup'> Sign Up </Link> </button>
                                     </>
                             }
                         </Nav>

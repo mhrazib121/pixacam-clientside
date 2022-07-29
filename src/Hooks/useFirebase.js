@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getAuth, signInWithPopup, signOut, GoogleAuthProvider, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-
-import initializeAuthentication from '../Firebase/Authentication.init'
-// import { useLocation, useNavigate } from 'react-router-dom';
+import initializeAuthentication from '../Firebase/Authentication.init';
 
 initializeAuthentication();
 const useFirebase = () => {

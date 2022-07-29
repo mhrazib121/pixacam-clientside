@@ -23,7 +23,7 @@ import { Link, Outlet } from 'react-router-dom';
 
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import HomeIcon from '@mui/icons-material/Home';
-import PaymentsIcon from '@mui/icons-material/Payments';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Footer from '../../../Shared/Footer/Footer';
@@ -84,7 +84,7 @@ const Dashboard = (props) => {
                             <Link style={{ textDecoration: 'none', color: '#FF4A17' }} to={`dashboard/myorder`}>
                                 <ListItem button>
                                     <ListItemIcon sx={{ color: 'black' }}>
-                                        <AddShoppingCartIcon />
+                                        <ShoppingCartIcon />
                                     </ListItemIcon>
                                     <ListItemText >
                                         <h6 className="my-0">My Order</h6>
@@ -94,7 +94,7 @@ const Dashboard = (props) => {
                             <Link style={{ textDecoration: 'none', color: '#FF4A17' }} to={`dashboard/reviewprovide`}>
                                 <ListItem button>
                                     <ListItemIcon sx={{ color: 'black' }}>
-                                        <AddShoppingCartIcon />
+                                        <StarBorderIcon />
                                     </ListItemIcon>
                                     <ListItemText >
                                         <h6 className="my-0">Review</h6>
@@ -143,16 +143,7 @@ const Dashboard = (props) => {
                 }
             </List>
             <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
+            
         </div>
     );
 

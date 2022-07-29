@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import MyOrderCard from '../../../../Card/MyOrderCard/MyOrderCard';
 import useAuth from '../../../../Hooks/useAuth';
-import useProducts from '../../../../Hooks/useProducts';
-import Dashboard from '../../Dashboard/Dashboard';
+
 
 const MyOrder = () => {
     const { user } = useAuth();
-    // const {products} = useProducts();
     const [orders, setOrders] = useState([])
 
+    // Order details load 
     useEffect(() => {
         fetch('https://obscure-beyond-83290.herokuapp.com/orders')
             .then(res => res.json())
@@ -20,6 +18,7 @@ const MyOrder = () => {
             })
     }, [user.email])
 
+    // Order cancel function 
     const cancelOrder = (id) => {
         const proced = window.confirm('Do you want to cancel your order');
         if (proced) {
