@@ -14,7 +14,7 @@ const ProductDetails = () => {
         <div>
             <Header />
             <div >
-                <div className='flex justify-betwee mx-5 my-4 p-3 pb-5 bg-gray-100'>
+                <div className='lg:flex justify-betwee mx-5 my-4 p-3 pb-5 bg-gray-100'>
                     <img src={productDetails?.img} alt="" />
                     <div className='ms-4'>
                         <h1 className='text-xl font-bold text-color mb-2'>{productDetails?.productName}</h1>

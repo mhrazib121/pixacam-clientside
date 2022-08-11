@@ -2,7 +2,7 @@ import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Avatar } from '@mui/material';
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import useAuth from '../../Hooks/useAuth';
@@ -30,16 +30,33 @@ const Header = () => {
                             {
                                 user.email ?
                                     <>
-                                        <HashLink className='mx-3 link-design ' smooth to="/dashboard#"> Dashboard</HashLink>
+                                    
                                         <HashLink className='text-2xl mx-2 ' smooth to="/placeorder"> <FontAwesomeIcon icon={faBasketShopping} /> </HashLink>
-                                        <Avatar
+                                        {/* <Avatar
                                             alt="Remy Sharp"
                                             src={user.photoURL}
                                             sx={{ width: 30, height: 30 }}
-                                        />
+                                        /> */}
+
+                                        <NavDropdown title={
+                                            <Avatar
+                                                alt="Remy Sharp"
+                                                src={user.photoURL}
+                                                sx={{ width: 30, height: 30 }}
+                                            />
+                                        } id="collasible-nav-dropdown">
+                                            
+                                            <NavDropdown.Item >
+                                            <HashLink smooth to="/dashboard#"> Dashboard</HashLink>
+                                            </NavDropdown.Item>
+                                            <NavDropdown.Item onClick={logOut}>
+                                                 Logout
+                                            </NavDropdown.Item>
+                                            {/* <button > Logout</button> */}
+                                        </NavDropdown>
 
                                         {/* <p className='mx-3'>  {user.displayName} </p> */}
-                                        <button className='btn-all mx-2' onClick={logOut}> Logout</button>
+
                                     </>
                                     :
                                     <>

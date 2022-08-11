@@ -29,6 +29,11 @@
     margin-right: auto;
     z-index: 1000;
 }
+.dropdown-toggle::after{
+    border-top: 0.3rem solid #FF4A17;
+    position: absolute;
+    right: 0;
+}
 .text-color{
     color:#FF4A17;
 }
