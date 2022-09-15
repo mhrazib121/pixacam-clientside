@@ -6,13 +6,12 @@ const useCardProducts = () => {
     const {user} = useAuth();
     useEffect(()=>{
         fetch('https://obscure-beyond-83290.herokuapp.com/productscard')
-        // fetch('http://localhost:5001/productscard')
         .then(res=> res.json())
         .then(data=> {
             const myCart = data.filter(cart=> cart.cart.email === user.email);
             setCartDetails(myCart);
         })
-    },[])
+    },[user.email])
     return [
         cartDetails,
     ];

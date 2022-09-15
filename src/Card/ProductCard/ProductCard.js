@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Rating } from '@mui/material';
 import axios from 'axios';
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import useCardProducts from '../../Hooks/useCardProducts';
@@ -15,8 +16,7 @@ const ProductCard = (props) => {
     const newPrice = price - (price * 10) / 100;
     const [cardDetails] = useCardProducts();
     const singlePdcInCard = cardDetails.find(product => product.cart._id === props.product._id);
-
-
+    
     const addToCard = (id) => {
         // If users did't login yet
         if (!user?.email) {
@@ -66,8 +66,9 @@ const ProductCard = (props) => {
                             // Notification
                             document.getElementById('customAlert').style.display = 'none';
                             cardNotify.innerHTML = '';
-                            window.location.reload(true);
-                        }, 2500);
+                            // window.location.reload(true);
+                            navigate("/placeorder", { replace: true });
+                        }, 1000);
                     }
                 })
         }

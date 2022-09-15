@@ -16,7 +16,9 @@ const MyOrder = () => {
                 const myOrders = data.filter(order => order.email === user.email);
                 setOrders(myOrders);
             })
-    }, [user.email])
+    }, [user.email]);
+    // console.log(orders.ma)
+    // orders.map(order=> setOrder(order.myOrder))
 
     // Order cancel function 
     const cancelOrder = (id) => {
@@ -42,7 +44,8 @@ const MyOrder = () => {
         <div>
             <div className="container mb-5">
                 <h1 className='text-4xl font-bold text-center my-5'>My <span className='text-color'>Orders</span></h1>
-                <Row xs={1} md={3} className="g-4">
+                <Row xs={1} md={1} className="gap-3">
+                {/* xs={1} md={3} */}
                     {
                         orders.map(order => <MyOrderCard key={order._id} order={order} cancelOrder={cancelOrder}></MyOrderCard>)
                     }

@@ -157,14 +157,8 @@ const Home = () => {
             <div>
                 <Reviews />
             </div>
-
+            
             {/* Alert  */}
-            {/* <div id='customAlert'>
-                <div id='alert-box'>
-                    <h1> {}</h1>
-                    <button id='alert-close'> ok </button>
-                </div>
-            </div> */}
             <AddToCard></AddToCard>
             <Footer />
         </div>

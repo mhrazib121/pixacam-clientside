@@ -26,17 +26,12 @@ const Header = () => {
                             <Link className='link-design ' to="/blog">Blog</Link>
                             <Link className=' link-design ' to="/about">About Us</Link>
                         </Nav>
-                        <Nav className="ms-auto flex items-center ">
+                        <Nav className="ms-auto me-5 flex items-center ">
                             {
                                 user.email ?
                                     <>
                                     
-                                        <HashLink className='text-2xl mx-2 ' smooth to="/placeorder"> <FontAwesomeIcon icon={faBasketShopping} /> </HashLink>
-                                        {/* <Avatar
-                                            alt="Remy Sharp"
-                                            src={user.photoURL}
-                                            sx={{ width: 30, height: 30 }}
-                                        /> */}
+                                        
 
                                         <NavDropdown title={
                                             <Avatar
@@ -46,14 +41,15 @@ const Header = () => {
                                             />
                                         } id="collasible-nav-dropdown">
                                             
-                                            <NavDropdown.Item >
+                                            <NavDropdown.Item>
                                             <HashLink smooth to="/dashboard#"> Dashboard</HashLink>
                                             </NavDropdown.Item>
                                             <NavDropdown.Item onClick={logOut}>
                                                  Logout
                                             </NavDropdown.Item>
-                                            {/* <button > Logout</button> */}
                                         </NavDropdown>
+
+                                        <HashLink className='text-2xl mx-2 ' smooth to="/placeorder"> <FontAwesomeIcon icon={faBasketShopping} /> </HashLink>
 
                                         {/* <p className='mx-3'>  {user.displayName} </p> */}
 
