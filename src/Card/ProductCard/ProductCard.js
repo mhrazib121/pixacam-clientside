@@ -16,7 +16,7 @@ const ProductCard = (props) => {
     const newPrice = price - (price * 10) / 100;
     const [cardDetails] = useCardProducts();
     const singlePdcInCard = cardDetails.find(product => product.cart._id === props.product._id);
-    
+
     const addToCard = (id) => {
         // If users did't login yet
         if (!user?.email) {
@@ -66,7 +66,6 @@ const ProductCard = (props) => {
                             // Notification
                             document.getElementById('customAlert').style.display = 'none';
                             cardNotify.innerHTML = '';
-                            // window.location.reload(true);
                             navigate("/placeorder", { replace: true });
                         }, 1000);
                     }
@@ -91,8 +90,8 @@ const ProductCard = (props) => {
                                 ${newPrice}
                                 <del className='text-sm text-gray-400 ms-auto font-bold'> ${price}</del>
                             </p>
-                            <FontAwesomeIcon icon={faCartPlus} className="text-color text-xl me-2" onClick={() => addToCard(_id)}  />
-                            
+                            <FontAwesomeIcon icon={faCartPlus} className="text-color text-xl me-2" onClick={() => addToCard(_id)} />
+
                             {/* <button className='btn-cart' onClick={() => addToCard(_id)} > Add to Card </button> */}
                         </div>
                         <div className='flex items-center'>
