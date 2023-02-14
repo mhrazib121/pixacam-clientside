@@ -7,7 +7,7 @@ const ManageOrder = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch('https://obscure-beyond-83290.herokuapp.com/orders')
+        fetch('https://pixacam-serverside-mhrazib121.vercel.app/orders')
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [user.email])
@@ -15,7 +15,7 @@ const ManageOrder = () => {
     const cancelOrder = (id) => {
         const proced = window.confirm(' Do you want to cancel order?');
         if (proced) {
-            const url = `https://obscure-beyond-83290.herokuapp.com/orders/${id}`;
+            const url = `https://pixacam-serverside-mhrazib121.vercel.app/orders/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -33,7 +33,7 @@ const ManageOrder = () => {
     const updateOrderStatus = (id) => {
         const proceed = window.confirm('Do Want To Update Order Status?');
         if (proceed) {
-            const url = `https://obscure-beyond-83290.herokuapp.com/orders/${id}`;
+            const url = `https://pixacam-serverside-mhrazib121.vercel.app/orders/${id}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {

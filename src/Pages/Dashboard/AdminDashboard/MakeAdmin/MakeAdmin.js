@@ -9,7 +9,7 @@ const MakeAdmin = () => {
         console.log(data)
         reset();
         setEmail(data);
-        fetch('https://obscure-beyond-83290.herokuapp.com/users/admin', {
+        fetch('https://pixacam-serverside-mhrazib121.vercel.app/users/admin', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

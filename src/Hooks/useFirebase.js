@@ -15,49 +15,49 @@ const useFirebase = () => {
     // User login by using google 
     const signinUsingGoogle = () => {
         setUserIsLoading(true);
-    return signInWithPopup(auth, googleprovider)
-      
+        return signInWithPopup(auth, googleprovider)
+
     }
 
     // User Logout 
-    const logOut = ()=>{
+    const logOut = () => {
         setUserIsLoading(true)
-        signOut (auth)
-        .then(()=>{
-            setUser({})
-        })
-        .finally(()=>setUserIsLoading(false))
+        signOut(auth)
+            .then(() => {
+                setUser({})
+            })
+            .finally(() => setUserIsLoading(false))
     }
 
 
     // Creating new user 
-    const registerUser=(email, password, name, navigate, location)=>{
+    const registerUser = (email, password, name, navigate, location) => {
         // setUserIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
-        .then(result=>{
-            const newUser = {email, displayName:name};
-            setUser(newUser);
-            saveUser(email, name, 'POST');
+            .then(result => {
+                const newUser = { email, displayName: name };
+                setUser(newUser);
+                saveUser(email, name, 'POST');
 
-            // Redicrect 
-            const redirect =location?.state?.from || '/';
-            navigate(redirect)
-        })
-        .catch(error=>{
-            const errorMassage = error.massage;
-        })
+                // Redicrect 
+                const redirect = location?.state?.from || '/';
+                navigate(redirect)
+            })
+            .catch(error => {
+                const errorMassage = error.massage;
+            })
         // .finally(()=>setUserIsLoading(false))
     }
 
-    const loginRegisteredUser =(email, password)=>{
+    const loginRegisteredUser = (email, password) => {
         setUserIsLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
-        
+
     }
 
-    useEffect(()=>{
-        onAuthStateChanged(auth, user=>{
-            if(user){
+    useEffect(() => {
+        onAuthStateChanged(auth, user => {
+            if (user) {
                 setUser(user);
             }
             setUserIsLoading(false)
@@ -67,7 +67,7 @@ const useFirebase = () => {
     // User Save
     const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('https://obscure-beyond-83290.herokuapp.com/users', {
+        fetch('https://pixacam-serverside-mhrazib121.vercel.app/users', {
             method: method,
             headers: {
                 'Content-Type': 'application/json'
@@ -79,7 +79,7 @@ const useFirebase = () => {
 
     // Admin 
     useEffect(() => {
-        fetch(`https://obscure-beyond-83290.herokuapp.com/users/${user.email}`)
+        fetch(`https://pixacam-serverside-mhrazib121.vercel.app/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])

@@ -51,7 +51,7 @@ const ProductCard = (props) => {
 
             // Comment
 
-            axios.post('https://obscure-beyond-83290.herokuapp.com/productscard', productDetails)
+            axios.post('https://pixacam-serverside-mhrazib121.vercel.app/productscard', productDetails)
                 .then(res => {
                     console.log('addto')
                     if (res.data.insertedId) {

@@ -5,10 +5,10 @@ const useProducts = () => {
     const [productsIsLoading, setProductsIsLoading] = useState(true)
     useEffect(() => {
         setProductsIsLoading(true)
-        fetch('https://obscure-beyond-83290.herokuapp.com/products')
+        fetch('https://pixacam-serverside-mhrazib121.vercel.app/products')
             .then(res => res.json())
             .then(data => setProducts(data))
-            .finally(()=> setProductsIsLoading(false))
+            .finally(() => setProductsIsLoading(false))
     }, [])
     return [
         products,

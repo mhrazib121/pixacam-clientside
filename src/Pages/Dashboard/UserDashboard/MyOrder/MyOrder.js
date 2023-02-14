@@ -10,7 +10,7 @@ const MyOrder = () => {
 
     // Order details load 
     useEffect(() => {
-        fetch('https://obscure-beyond-83290.herokuapp.com/orders')
+        fetch('https://pixacam-serverside-mhrazib121.vercel.app/orders')
             .then(res => res.json())
             .then(data => {
                 const myOrders = data.filter(order => order.email === user.email);
@@ -24,7 +24,7 @@ const MyOrder = () => {
     const cancelOrder = (id) => {
         const proced = window.confirm('Do you want to cancel your order');
         if (proced) {
-            const url = `https://obscure-beyond-83290.herokuapp.com/orders/${id}`
+            const url = `https://pixacam-serverside-mhrazib121.vercel.app/orders/${id}`
             fetch(url, {
                 method: 'DELETE'
             })
@@ -45,7 +45,7 @@ const MyOrder = () => {
             <div className="container mb-5">
                 <h1 className='text-4xl font-bold text-center my-5'>My <span className='text-color'>Orders</span></h1>
                 <Row xs={1} md={1} className="gap-3">
-                {/* xs={1} md={3} */}
+                    {/* xs={1} md={3} */}
                     {
                         orders.map(order => <MyOrderCard key={order._id} order={order} cancelOrder={cancelOrder}></MyOrderCard>)
                     }

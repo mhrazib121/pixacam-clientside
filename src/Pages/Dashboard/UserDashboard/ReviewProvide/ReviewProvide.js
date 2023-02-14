@@ -8,7 +8,7 @@ const ReviewProvide = () => {
     const { user } = useAuth();
     const onSubmit = data => {
         data.img = user.photoURL;
-        axios.post('https://obscure-beyond-83290.herokuapp.com/reviews', data)
+        axios.post('https://pixacam-serverside-mhrazib121.vercel.app/reviews', data)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Thanks for your valuable feedback!');
