@@ -17,7 +17,6 @@ const MyOrder = () => {
                 setOrders(myOrders);
             })
     }, [user.email]);
-    // console.log(orders.ma)
     // orders.map(order=> setOrder(order.myOrder))
 
     // Order cancel function 

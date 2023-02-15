@@ -1,7 +1,6 @@
 import React from 'react';
 
-const MyOrderCard = ({ order,cancelOrder }) => {
-    console.log(order.myOrder)
+const MyOrderCard = ({ order, cancelOrder }) => {
     return (
         <div className=' drop-shadow-lg'>
             <div className='flex'>
@@ -29,7 +28,7 @@ const MyOrderCard = ({ order,cancelOrder }) => {
                     </div>)
                 }
                 <div className=' flex justify-end'>
-                <button className='cancel_btn' onClick={() =>cancelOrder(order?._id)}> Cancel </button>
+                    <button className='cancel_btn' onClick={() => cancelOrder(order?._id)}> Cancel </button>
                 </div>
             </div>
             {/* <div className='card-design shadow-2xl m-3'>

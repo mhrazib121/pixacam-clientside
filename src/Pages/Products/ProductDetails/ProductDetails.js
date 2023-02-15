@@ -9,7 +9,6 @@ const ProductDetails = () => {
     const [products] = useProducts();
     const productDetails = products.find(product => product?._id === id);
     const newPrice = productDetails?.price - (productDetails?.price * 10) / 100;
-    console.log(productDetails)
     return (
         <div>
             <Header />
@@ -33,14 +32,14 @@ const ProductDetails = () => {
                             <p className='text-sm text-gray-400'>Delivery</p>
                             <p>Dhaka, Dhaka - North, Badda, Bangladesh</p>
                         </div>
-                       
+
                         <div>
                             <p>Ships from Overseas</p>
                         </div>
                         <hr />
                         <div className='my-3'>
                             <p>Standard Delivery</p>
-                            <p  className='text-sm text-gray-400'>3 - 15 day(s)</p>
+                            <p className='text-sm text-gray-400'>3 - 15 day(s)</p>
                         </div>
                         <hr />
                         <div>

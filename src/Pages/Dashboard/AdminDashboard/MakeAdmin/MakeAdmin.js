@@ -6,7 +6,6 @@ const MakeAdmin = () => {
     const [email, setEmail] = useState('');
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        console.log(data)
         reset();
         setEmail(data);
         fetch('https://pixacam-serverside-mhrazib121.vercel.app/users/admin', {

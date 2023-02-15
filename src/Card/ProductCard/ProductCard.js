@@ -47,8 +47,6 @@ const ProductCard = (props) => {
             props.product.quantity = 1;
             props.product.newPrice = newPrice;
             const productDetails = { cart: props.product };
-            console.log('add', productDetails);
-
             // Comment
 
             axios.post('https://pixacam-serverside-mhrazib121.vercel.app/productscard', productDetails)

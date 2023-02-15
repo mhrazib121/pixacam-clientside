@@ -22,9 +22,11 @@ import offerBanner7 from '../../images/banner-7.png'
 import Stack from '@mui/material/Stack';
 import CircularProgress from '@mui/material/CircularProgress';
 import AddToCard from '../../Notify/AddToCard/AddToCard';
+import useReview from '../../Hooks/useReview';
 
 const Home = () => {
     const [products, productsIsLoading] = useProducts();
+    const [isReviewLoading] = useReview();
     var settings = {
         dots: false,
         infinite: true,
@@ -43,7 +45,7 @@ const Home = () => {
         autoplaySpeed: 2000,
         pauseOnHover: true
     };
-    if (productsIsLoading) {
+    if (productsIsLoading && isReviewLoading) {
         return (
             <Stack sx={{ color: '#FF4A17', justifyContent: 'center', marginTop: '350px', }} direction="row">
                 <CircularProgress size={80} color="inherit" />
@@ -157,7 +159,7 @@ const Home = () => {
             <div>
                 <Reviews />
             </div>
-            
+
             {/* Alert  */}
             <AddToCard></AddToCard>
             <Footer />

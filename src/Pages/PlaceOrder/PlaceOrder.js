@@ -52,7 +52,6 @@ const PlaceOrder = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log("kasdj")
                     if (data.deletedCount > 0) {
                         alert('Successfully Cancel Your Order');
                         const remainigOrders = cartDetails.filter(order => order._id !== id);

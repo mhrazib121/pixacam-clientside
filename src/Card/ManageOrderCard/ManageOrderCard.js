@@ -1,7 +1,6 @@
 import React from 'react';
 
 const ManageOrderCard = ({ order }) => {
-    // console.log(order)
     const { _id, firstName, address, myOrder, status } = order;
 
     return (
