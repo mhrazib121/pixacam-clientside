@@ -39,6 +39,8 @@ const PlaceOrder = () => {
                     navigate(redirect_url);
                 }
             })
+
+        axios.delete("https://pixacam-serverside-mhrazib121.vercel.app/productscard")
     }
 
     // Order cancel function 

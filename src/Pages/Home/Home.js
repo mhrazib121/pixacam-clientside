@@ -147,12 +147,14 @@ const Home = () => {
             </div>
 
             {/* Offer Section */}
-            <div className='md:flex md:gap-5 my-5 offer-section containe'>
-                <div className='w-50 me-auto ms-auto offer' >
-                    <img src={offerBanner6} alt="" />
-                </div>
-                <div className='w-50 me-auto ms-auto  offer '>
-                    <img src={offerBanner7} alt="" />
+            <div className='flex justify-center'>
+                <div className='md:flex md:gap-5 my-5 offer-section containe'>
+                    <div className='w-100 me-auto ms-auto offer mb-4' >
+                        <img src={offerBanner6} alt="" />
+                    </div>
+                    <div className='w-100 me-auto ms-auto  offer '>
+                        <img src={offerBanner7} alt="" />
+                    </div>
                 </div>
             </div>
 
