@@ -40,7 +40,7 @@ const Dashboard = (props) => {
             <Toolbar />
             <Divider />
             <List>
-                <Link style={{ textDecoration: 'none', color: '#FF6C27' }} to="/">
+                <Link style={{ textDecoration: 'none', color: '#191A1D' }} to="/">
                     <ListItem button>
                         <ListItemIcon sx={{ color: 'black' }}>
                             <HomeIcon />
@@ -50,7 +50,7 @@ const Dashboard = (props) => {
                         </ListItemText>
                     </ListItem>
                 </Link>
-                <Link style={{ textDecoration: 'none', color: '#FF4A17' }} to="/dashboard">
+                <Link style={{ textDecoration: 'none', color: '#191A1D' }} to="/dashboard">
                     <ListItem button>
                         <ListItemIcon sx={{ color: 'black' }}>
                             <DashboardIcon />
@@ -60,7 +60,7 @@ const Dashboard = (props) => {
                         </ListItemText>
                     </ListItem>
                 </Link>
-                <Link style={{ textDecoration: 'none', color: '#FF4A17' }} to="/products">
+                <Link style={{ textDecoration: 'none', color: '#191A1D' }} to="/products">
                     <ListItem button>
                         <ListItemIcon sx={{ color: 'black' }}>
                             <AddShoppingCartIcon />
@@ -73,7 +73,7 @@ const Dashboard = (props) => {
                 {
                     !admin ?
                         <>
-                            <Link style={{ textDecoration: 'none', color: '#FF4A17' }} to={`dashboard/myorder`}>
+                            <Link style={{ textDecoration: 'none', color: '#191A1D' }} to={`dashboard/myorder`}>
                                 <ListItem button>
                                     <ListItemIcon sx={{ color: 'black' }}>
                                         <ShoppingCartIcon />
@@ -83,7 +83,7 @@ const Dashboard = (props) => {
                                     </ListItemText>
                                 </ListItem>
                             </Link>
-                            <Link style={{ textDecoration: 'none', color: '#FF4A17' }} to={`dashboard/reviewprovide`}>
+                            <Link style={{ textDecoration: 'none', color: '#191A1D' }} to={`dashboard/reviewprovide`}>
                                 <ListItem button>
                                     <ListItemIcon sx={{ color: 'black' }}>
                                         <StarBorderIcon />
@@ -99,7 +99,7 @@ const Dashboard = (props) => {
                         :
                         <>
                             {/* Admin Section  */}
-                            <Link style={{ textDecoration: 'none', color: '#FF4A17' }} to={`dashboard/manageorder`}>
+                            <Link style={{ textDecoration: 'none', color: '#191A1D' }} to={`dashboard/manageorder`}>
                                 <ListItem button>
                                     <ListItemIcon sx={{ color: 'black' }}>
                                         <AddShoppingCartIcon />
@@ -111,7 +111,7 @@ const Dashboard = (props) => {
                             </Link>
 
 
-                            <Link style={{ textDecoration: 'none', color: '#FF4A17' }} to={`dashboard/addnewproduct`}>
+                            <Link style={{ textDecoration: 'none', color: '#191A1D' }} to={`dashboard/addnewproduct`}>
                                 <ListItem button>
                                     <ListItemIcon sx={{ color: 'black' }}>
                                         <AddShoppingCartIcon />
@@ -121,7 +121,7 @@ const Dashboard = (props) => {
                                     </ListItemText>
                                 </ListItem>
                             </Link>
-                            <Link style={{ textDecoration: 'none', color: '#FF4A17' }} to={`dashboard/makeadmin`}>
+                            <Link style={{ textDecoration: 'none', color: '#191A1D' }} to={`dashboard/makeadmin`}>
                                 <ListItem button>
                                     <ListItemIcon sx={{ color: 'black' }}>
                                         <AddShoppingCartIcon />
@@ -152,7 +152,7 @@ const Dashboard = (props) => {
                     }}
                 >
                     <Toolbar
-                        style={{ backgroundColor: '#FF4A17' }}
+                        style={{ backgroundColor: '#191A1D' }}
                     >
                         <IconButton
                             color="inherit"

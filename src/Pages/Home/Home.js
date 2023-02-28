@@ -45,9 +45,10 @@ const Home = () => {
         autoplaySpeed: 2000,
         pauseOnHover: true
     };
-    if (productsIsLoading && isReviewLoading) {
+    console.log({ products });
+    if (products.length === 0) {
         return (
-            <Stack sx={{ color: '#FF4A17', justifyContent: 'center', marginTop: '350px', }} direction="row">
+            <Stack sx={{ color: '#484C54', justifyContent: 'center', marginTop: '350px', }} direction="row">
                 <CircularProgress size={80} color="inherit" />
             </Stack>
         )
@@ -59,7 +60,7 @@ const Home = () => {
             {/* Top Banner */}
             <div className='top-section top-banner'>
                 <h1 className='md:text-6xl sm:text-sm text-white text-center '>
-                    Capture Your <br /> <span className='text-color'> Beautyfull Moments </span>
+                    Capture Your <br /> <span className=''> Beautyfull Moments </span>
                 </h1>
                 <p className=' md:text-xl sm:text-sm text-white text-center mt-3'> PixaCam is modern camera selling company in the world. We sell brand new and latest camera at a reasonable price. </p>
                 <div className='flex justify-center p-12'>

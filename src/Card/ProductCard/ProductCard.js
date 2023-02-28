@@ -90,7 +90,7 @@ const ProductCard = (props) => {
                                 ${newPrice}
                                 <del className='text-sm text-gray-400 ms-auto font-bold'> ${price}</del>
                             </p>
-                            <FontAwesomeIcon icon={faCartPlus} className="text-color text-xl me-2" onClick={() => addToCard(_id)} />
+                            <FontAwesomeIcon icon={faCartPlus} className="text-color text-xl me-2 cursor-pointer" onClick={() => addToCard(_id)} />
 
                             {/* <button className='btn-cart' onClick={() => addToCard(_id)} > Add to Card </button> */}
                         </div>
