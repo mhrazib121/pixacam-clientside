@@ -25,7 +25,7 @@ const AddCardItems = (props) => {
             <td className='p-2 text-wrap'>{id}</td>
             <td className='p-2'><img className='img-fluid' src={img} alt="" /></td>
             <td className='p-2'>{productName} <br />
-                <span className='text-red-600' onClick={() => props?.removeItems(props.product._id)}> Remove Item</span>
+                <span className='text-red-600 cursor-pointer' onClick={() => props?.removeItems(props.product._id)}> Remove Item</span>
             </td>
             <td className='p-2 m-5'>
                 <button className='text-3xl mx-3' onClick={quantityDecrease}>-</button>

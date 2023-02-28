@@ -1,23 +1,28 @@
-.card-design{
+.card-design {
     border-radius: 10px;
 }
-.card-design:hover{
+
+.card-design:hover {
     transform: scale(1.08);
     transition: transform 0.3s ease-in-out;
 }
-.img-edit{
+
+.img-edit {
     width: 100%;
     height: 200px;
 }
-.link-d{
+
+.link-d {
     text-decoration: none;
-    color:white;
+    color: white;
 }
-.link-d:hover{
+
+.link-d:hover {
     text-decoration: none;
     color: black;
 }
-.btn-cart{
+
+.btn-cart {
     padding: .3rem .5rem;
     background-color: #FF4A17;
     border: solid #FF4A17;

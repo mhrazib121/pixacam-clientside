@@ -18,7 +18,7 @@ const Header = () => {
                     <img className='logo-design' src={logo} alt="" />
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="me-auto  ">
+                        <Nav className="me-auto">
                             <Link className='link-design ' to="/home">Home</Link>
                             <Link className='link-design ' to="/products">Products</Link>
 
@@ -30,9 +30,6 @@ const Header = () => {
                             {
                                 user.email ?
                                     <>
-                                    
-                                        
-
                                         <NavDropdown title={
                                             <Avatar
                                                 alt="Remy Sharp"
@@ -40,12 +37,12 @@ const Header = () => {
                                                 sx={{ width: 30, height: 30 }}
                                             />
                                         } id="collasible-nav-dropdown">
-                                            
+
                                             <NavDropdown.Item>
-                                            <HashLink smooth to="/dashboard#"> Dashboard</HashLink>
+                                                <HashLink smooth to="/dashboard#"> Dashboard</HashLink>
                                             </NavDropdown.Item>
                                             <NavDropdown.Item onClick={logOut}>
-                                                 Logout
+                                                Logout
                                             </NavDropdown.Item>
                                         </NavDropdown>
 
@@ -56,8 +53,8 @@ const Header = () => {
                                     </>
                                     :
                                     <>
-                                        <button className='btn-all mx-2' > <Link className='link-de me-2' to='/login'> Login </Link> </button>
-                                        <button className='btn-all mx-2' > <Link className='link-de me-2' to='/signup'> Sign Up </Link> </button>
+                                        <button className='btn-all mx-2' > <Link className='link-de me-auto' to='/login'> Login </Link> </button>
+                                        <button className='btn-all mx-2' > <Link className='link-de me-auto' to='/signup'> Sign Up </Link> </button>
                                     </>
                             }
                         </Nav>

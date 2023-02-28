@@ -11,16 +11,16 @@
 }
 
 .explore-btn {
-    background-color: #FF4A17;
+    background-color: #c03813;
     white-space: nowrap;
     padding: 10px 15px;
-    border: 2px solid #FF4A17;
+    border: 2px solid #c03813;
     border-radius: 5px;
 }
 
 .explore-btn:hover {
     background-color: transparent;
-    border: 2px solid #FF4A17;
+    border: 2px solid #c03813;
     transition: .5s;
     font-weight: 600;
 }

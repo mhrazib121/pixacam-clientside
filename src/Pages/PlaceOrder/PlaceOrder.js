@@ -95,9 +95,9 @@ const PlaceOrder = () => {
                 <section className='col-lg-6  my-4 mx-auto form-design text-center'>
                     <h3 className='text-light text-black text-center text-3xl mb-4 fw-bold'> Provide Your Information:</h3>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <input className='w-75' {...register("firstName")} value={user.displayName} /> <br />
+                        <input className='w-75' {...register("firstName")} value={user.displayName} placeholder="Enter your name" /> <br />
                         <input className='w-75' type='email' {...register("email")} value={user.email} /> <br />
-                        <input className='w-75' type='date' {...register("orderDate")} /> <br />
+                        <input className='w-75' type='date' {...register("orderDate")} placeholder="Order Date" /> <br />
                         <input className='w-75' placeholder='Phone Number' type='number' {...register("phone")} /> <br />
                         <input className='w-75' placeholder='Address' type='address' {...register("address")} /> <br />
                         <input className='w-25 mt-4  text-lg ' type="submit" to="/mybooking" />
