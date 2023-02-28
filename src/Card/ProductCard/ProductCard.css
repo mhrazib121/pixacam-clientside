@@ -22,10 +22,11 @@
     color: black;
 }
 
-.btn-cart {
-    padding: .3rem .5rem;
+.btn-cart:hover {
+    color: #FF4A17;
+    /* padding: .3rem .5rem;
     background-color: #FF4A17;
     border: solid #FF4A17;
     border-radius: 5px;
-    color: white;
+    color: white; */
 }

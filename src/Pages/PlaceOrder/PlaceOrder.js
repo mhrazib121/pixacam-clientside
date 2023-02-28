@@ -11,7 +11,7 @@ import './PlaceOrder.css'
 
 const PlaceOrder = () => {
     const { user } = useAuth();
-    const [cartDetails, setCartDetails] = useState([])
+    const [cartDetails, setCartDetails] = useState([]);
     const { register, handleSubmit, reset } = useForm();
     const location = useLocation();
     const navigate = useNavigate();
@@ -25,7 +25,22 @@ const PlaceOrder = () => {
                 const myCart = data.filter(cart => cart.cart.email === user.email);
                 setCartDetails(myCart);
             })
-    }, [user.email])
+    }, [user.email]);
+
+    // Get current date
+    useEffect(() => {
+        const date = new Date();
+
+        let day = date.getDate();
+        let month = date.getMonth() + 1;
+        const year = date.getFullYear();
+
+        if (month < 10) month = "0" + month;
+        if (day < 10) day = "0" + day;
+
+        const today = year + "-" + month + "-" + day;
+        document.getElementById("theDate").value = today;
+    }, [])
 
     const onSubmit = data => {
         data.status = 'Pending';
@@ -94,14 +109,20 @@ const PlaceOrder = () => {
 
             {/* Customer Information  */}
             <div className='container row mx-auto my-5 pt-5 pb-5'>
-                <section className='col-lg-6  my-4 mx-auto form-design text-center'>
-                    <h3 className='text-light text-black text-center text-3xl mb-4 fw-bold'> Provide Your Information:</h3>
+                <section className='col-lg-6  my-4 mx-auto form-design '>
+                    <h3 className='text-light text-black  text-3xl mb-4 fw-bold'> Provide Your Information:</h3>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <input className='w-75' {...register("firstName")} value={user.displayName} placeholder="Enter your name" /> <br />
-                        <input className='w-75' type='email' {...register("email")} value={user.email} /> <br />
-                        <input className='w-75' type='date' {...register("orderDate")} placeholder="Order Date" /> <br />
-                        <input className='w-75' placeholder='Phone Number' type='number' {...register("phone")} /> <br />
-                        <input className='w-75' placeholder='Address' type='address' {...register("address")} /> <br />
+                        <p className='text-left'>Customer Name:</p>
+                        <input className='w-100' {...register("firstName")} value={user.displayName} placeholder="Enter your name" /> <br />
+                        <p className='text-left mt-3'>Customer Email:</p>
+                        <input className='w-100' type='email' {...register("email")} value={user.email} /> <br />
+                        <p className='text-left mt-3'>Order Date:</p>
+                        <input className='w-100' type='date' {...register("orderDate")} placeholder="Order Date"
+                            id='theDate' /> <br />
+                        <p className='text-left mt-3'>Phone Number:</p>
+                        <input className='w-100' placeholder='Phone Number' type='number' {...register("phone")} /> <br />
+                        <p className='text-left mt-3'>Delivery Address:</p>
+                        <input className='w-100' placeholder='Address' type='address' {...register("address")} /> <br />
                         <input className='w-25 mt-4  text-lg ' type="submit" to="/mybooking" />
                     </form>
                 </section>

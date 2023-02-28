@@ -46,9 +46,7 @@ const Header = () => {
                                             </NavDropdown.Item>
                                         </NavDropdown>
 
-                                        <HashLink className='text-2xl mx-2 ' smooth to="/placeorder"> <FontAwesomeIcon icon={faBasketShopping} /> </HashLink>
-
-                                        {/* <p className='mx-3'>  {user.displayName} </p> */}
+                                        <HashLink className='btn-cart text-2xl mx-2 ' smooth to="/placeorder"> <FontAwesomeIcon icon={faBasketShopping} /> </HashLink>
 
                                     </>
                                     :
