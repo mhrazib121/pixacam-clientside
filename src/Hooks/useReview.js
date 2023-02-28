@@ -8,8 +8,8 @@ const useReview = () => {
         fetch('https://pixacam-serverside-mhrazib121.vercel.app/reviews')
             .then(res => res.json())
             .then(data => {
-                setReviews(data);
                 setIsReviewLoading(false);
+                setReviews(data);
             })
     }, [])
     return [

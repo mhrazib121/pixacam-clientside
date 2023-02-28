@@ -8,8 +8,8 @@ const useProducts = () => {
         fetch('https://pixacam-serverside-mhrazib121.vercel.app/products')
             .then(res => res.json())
             .then(data => {
-                setProducts(data);
                 setProductsIsLoading(false);
+                setProducts(data);
             })
     }, [])
     return [
