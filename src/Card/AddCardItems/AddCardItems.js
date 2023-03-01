@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const AddCardItems = (props) => {
-    const { id, img, productName, price, quantity } = props.product.cart;
+    const { id, img, productName, quantity, newPrice } = props.product.cart;
     const [unit, setUnit] = useState(quantity);
 
     // Quantity Increase 
@@ -18,7 +18,7 @@ const AddCardItems = (props) => {
         )
     }
     // Total Price 
-    const totalPrice = price * unit;
+    const totalPrice = newPrice * unit;
 
     return (
         <tr className="text-center fw-light">
@@ -32,7 +32,7 @@ const AddCardItems = (props) => {
                 {unit}
                 <button className='text-3xl mx-3' onClick={quantityIncrease}>+</button>
             </td>
-            <td className='p-2'>{price}</td>
+            <td className='p-2'>{newPrice}</td>
             <td className='p-2'>{totalPrice}</td>
         </tr>
     );

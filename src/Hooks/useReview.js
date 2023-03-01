@@ -12,8 +12,7 @@ const useReview = () => {
                 setReviews(data);
             })
             .catch(
-                console.log("Error")
-            )
+        )
     }, [])
     return [
         reviews,

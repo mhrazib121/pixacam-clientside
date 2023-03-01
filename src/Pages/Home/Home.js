@@ -45,7 +45,6 @@ const Home = () => {
         autoplaySpeed: 2000,
         pauseOnHover: true
     };
-    console.log({ products });
     if (products.length === 0) {
         return (
             <Stack sx={{ color: '#484C54', justifyContent: 'center', marginTop: '350px', }} direction="row">
