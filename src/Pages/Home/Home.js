@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { faArrowRightArrowLeft, faAward, faTruck, faUserShield } from '@fortawesome/free-solid-svg-icons';
 import './Home.css'
@@ -22,11 +22,11 @@ import offerBanner7 from '../../images/banner-7.png'
 import Stack from '@mui/material/Stack';
 import CircularProgress from '@mui/material/CircularProgress';
 import AddToCard from '../../Notify/AddToCard/AddToCard';
-import useReview from '../../Hooks/useReview';
+import SelectInput from '../../Component/FilterOption/FilterOption';
 
 const Home = () => {
     const [products, productsIsLoading] = useProducts();
-    const [isReviewLoading] = useReview();
+    const [selectedOption, setSelectedOption] = useState()
     var settings = {
         dots: false,
         infinite: true,
@@ -51,7 +51,17 @@ const Home = () => {
                 <CircularProgress size={80} color="inherit" />
             </Stack>
         )
-    }
+    };
+    const filterByPrice = (a, b) => {
+        if (selectedOption === "Low to High") {
+            return a.price - b.price;
+        };
+        if (selectedOption === "High to Low") {
+            return b.price - a.price;
+        };
+        return a;
+    };
+
     return (
         <div>
             <Header />
@@ -95,10 +105,16 @@ const Home = () => {
             <div className=" my-5">
                 <h1 className='text-4xl font-bold text-center uppercase'>Featured <span className='text-color'>Products</span></h1>
                 <h3 className='text-xl font-bold text-center mt-2 mb-5'>Select your best choice <span className='text-color'></span></h3>
-                <div className="sm:grid md:grid-cols-4 my-4 md:gap- grid-cols-2 sm:gap-1 justufy-center container ">
+                <div className='flex justify-between items-center mx-10 md:mx-20'>
+                    <div></div>
+                    <SelectInput options={["Default", "Low to High", "High to Low"]} selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
+                </div>
+                <div className="sm:grid md:grid-cols-4 my-4 md:gap- grid-cols-2 sm:gap-1 justify-center container ">
 
                     {
-                        products.slice(0, 8).map(product => <ProductCard key={product._id} product={product} ></ProductCard>)
+                        products.slice(0, 8)
+                            .sort(filterByPrice)
+                            .map(product => <ProductCard key={product._id} product={product} ></ProductCard>)
                     }
                 </div>
                 <Link className='text-color link-d flex justify-end text-lg pe-4 ms-auto' to={`/products`}> More Products</Link>

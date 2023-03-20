@@ -59,6 +59,25 @@
     padding: 10px 30px;
 }
 
+.select-option {
+    font-size: 18px;
+}
+
+.select-option:focus {
+    border: 30px;
+    /* background-color: red; */
+}
+
+.select-option option {
+    border: none;
+}
+
+option:hover {
+    background-color: red;
+}
+
+;
+
 #alert-box {
 
     padding: 10px 30px;
