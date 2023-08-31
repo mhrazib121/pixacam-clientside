@@ -5,7 +5,7 @@ const useReview = () => {
   const [isReviewLoading, setIsReviewLoading] = useState(false);
   useEffect(() => {
     setIsReviewLoading(true);
-    fetch("http://localhost:5001/reviews")
+    fetch("https://pixacam-serverside.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => {
         setIsReviewLoading(false);

@@ -58,7 +58,10 @@ const ProductCard = (props) => {
       // Comment
 
       axios
-        .post("http://localhost:5001/productscard", productDetails)
+        .post(
+          "https://pixacam-serverside.vercel.app/productscard",
+          productDetails
+        )
         .then((res) => {
           if (res.data.insertedId) {
             const customAlert = document.getElementById("customAlert");

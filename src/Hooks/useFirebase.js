@@ -72,7 +72,7 @@ const useFirebase = () => {
   // User Save
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName };
-    fetch("http://localhost:5001/users", {
+    fetch("https://pixacam-serverside.vercel.app/users", {
       method: method,
       headers: {
         "Content-Type": "application/json",
@@ -83,7 +83,7 @@ const useFirebase = () => {
 
   // Admin
   useEffect(() => {
-    fetch(`http://localhost:5001/users/${user.email}`)
+    fetch(`https://pixacam-serverside.vercel.app/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin));
   }, [user.email]);

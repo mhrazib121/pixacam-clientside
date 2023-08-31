@@ -30,7 +30,7 @@ const PlaceOrder = () => {
     amount: 1,
     onCreatePayment: async (paymentRequest) => {
       // call your API with the payment request here
-      return await fetch("http://localhost:5001/orders", {
+      return await fetch("https://pixacam-serverside.vercel.app/orders", {
         method: "POST",
         body: JSON.stringify(paymentRequest),
       })
@@ -42,9 +42,12 @@ const PlaceOrder = () => {
     },
     onExecutePayment: async (paymentID) => {
       // call your executePayment API here
-      return await fetch(`http://localhost:5001/execute/${paymentID}`, {
-        method: "POST",
-      })
+      return await fetch(
+        `https://pixacam-serverside.vercel.app/execute/${paymentID}`,
+        {
+          method: "POST",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log("on execute", data);
@@ -54,7 +57,7 @@ const PlaceOrder = () => {
   });
 
   useEffect(() => {
-    fetch("http://localhost:5001/productscard")
+    fetch("https://pixacam-serverside.vercel.app/productscard")
       .then((res) => res.json())
       .then((data) => {
         const myCart = data.filter((cart) => cart.cart.email === user.email);
@@ -82,7 +85,7 @@ const PlaceOrder = () => {
     data.myOrder = cartDetails;
     console.log("sdfjdsffdsf");
     // try {
-    //   const result = await axios.post("http://localhost:5001/orders");
+    //   const result = await axios.post("https://pixacam-serverside.vercel.app/orders");
     //   console.log(
     //     "🚀 ~ file: page.tsx:8 ~ bkashPaymentHandler ~ result:",
     //     result
@@ -99,7 +102,7 @@ const PlaceOrder = () => {
     //   console.log(error);
     // }
 
-    // axios.post('http://localhost:5001/orders', data)
+    // axios.post('https://pixacam-serverside.vercel.app/orders', data)
     //     .then(res => {
     //         if (res.data.insertedId) {
     //             alert('Placing order successfully');
@@ -108,14 +111,14 @@ const PlaceOrder = () => {
     //         }
     //     })
 
-    // axios.delete("http://localhost:5001/productscard")
+    // axios.delete("https://pixacam-serverside.vercel.app/productscard")
   };
 
   // Order cancel function
   const removeItems = (id) => {
     const proced = window.confirm("Do you want to cancel your order");
     if (proced) {
-      const url = `http://localhost:5001/productscard/${id}`;
+      const url = `https://pixacam-serverside.vercel.app/productscard/${id}`;
       fetch(url, {
         method: "DELETE",
       })

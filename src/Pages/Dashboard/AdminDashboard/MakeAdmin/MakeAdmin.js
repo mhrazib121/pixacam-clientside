@@ -7,7 +7,7 @@ const MakeAdmin = () => {
   const onSubmit = (data) => {
     reset();
     setEmail(data);
-    fetch("http://localhost:5001/users/admin", {
+    fetch("https://pixacam-serverside.vercel.app/users/admin", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

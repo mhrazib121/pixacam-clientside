@@ -7,12 +7,14 @@ import "./AddNewProduct.css";
 const AddNewProduct = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    axios.post("http://localhost:5001/products", data).then((res) => {
-      if (res.data.insertedId) {
-        alert("Added new service successfully");
-        reset();
-      }
-    });
+    axios
+      .post("https://pixacam-serverside.vercel.app/products", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          alert("Added new service successfully");
+          reset();
+        }
+      });
   };
   return (
     <div className="box-design banner-ls xl:flex justify-center">

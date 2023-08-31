@@ -5,7 +5,7 @@ const useProducts = () => {
   const [productsIsLoading, setProductsIsLoading] = useState(true);
   useEffect(() => {
     setProductsIsLoading(true);
-    fetch("http://localhost:5001/products")
+    fetch("https://pixacam-serverside.vercel.app/products")
       .then((res) => res.json())
       .then((data) => {
         setProductsIsLoading(false);

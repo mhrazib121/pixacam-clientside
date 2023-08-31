@@ -10,13 +10,15 @@ const ReviewProvide = () => {
   const navigate = useNavigate();
   const onSubmit = (data) => {
     data.img = user.photoURL;
-    axios.post("http://localhost:5001/reviews", data).then((res) => {
-      if (res.data.insertedId) {
-        alert("Thanks for your valuable feedback!");
-        reset();
-        navigate("/");
-      }
-    });
+    axios
+      .post("https://pixacam-serverside.vercel.app/reviews", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          alert("Thanks for your valuable feedback!");
+          reset();
+          navigate("/");
+        }
+      });
   };
   return (
     <div className="box-design banner-ls xl:flex justify-center">

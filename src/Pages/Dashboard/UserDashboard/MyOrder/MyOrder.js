@@ -9,7 +9,7 @@ const MyOrder = () => {
 
   // Order details load
   useEffect(() => {
-    fetch("http://localhost:5001/orders")
+    fetch("https://pixacam-serverside.vercel.app/orders")
       .then((res) => res.json())
       .then((data) => {
         const myOrders = data.filter((order) => order.email === user.email);
@@ -22,7 +22,7 @@ const MyOrder = () => {
   const cancelOrder = (id) => {
     const proced = window.confirm("Do you want to cancel your order");
     if (proced) {
-      const url = `http://localhost:5001/orders/${id}`;
+      const url = `https://pixacam-serverside.vercel.app/orders/${id}`;
       fetch(url, {
         method: "DELETE",
       })
