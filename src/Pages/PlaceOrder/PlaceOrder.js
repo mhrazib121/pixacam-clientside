@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useBkash } from "react-bkash";
 import { useForm } from "react-hook-form";
@@ -14,13 +15,18 @@ const PlaceOrder = () => {
   const { register, handleSubmit, reset } = useForm();
   const location = useLocation();
   const navigate = useNavigate();
-  // const { triggerBkash, error, loading } = usePayWithBkash();
 
   const redirect_url = location.state?.from || "/dashboard/dashboard/myorder";
 
   const { error, loading, triggerBkash } = useBkash({
     onSuccess: (data) => {
-      console.log(data); // this contains data from api response from onExecutePayment
+      console.log("on success", data); // this contains data from api response from onExecutePayment
+      if (data) {
+        // onSubmit({ ...data });
+        console.log("submitted");
+        navigate(redirect_url);
+        window.location.reload();
+      }
     },
     onClose: () => {
       console.log("Bkash iFrame closed");
@@ -30,10 +36,13 @@ const PlaceOrder = () => {
     amount: 1,
     onCreatePayment: async (paymentRequest) => {
       // call your API with the payment request here
-      return await fetch("https://pixacam-serverside.vercel.app/orders", {
-        method: "POST",
-        body: JSON.stringify(paymentRequest),
-      })
+      return await fetch(
+        "https://pixacam-serverside.vercel.app/createCheckout",
+        {
+          method: "POST",
+          body: JSON.stringify(paymentRequest),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log("on creatate payment", data);
@@ -47,14 +56,30 @@ const PlaceOrder = () => {
         {
           method: "POST",
         }
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          console.log("on execute", data);
-          return { ...data };
-        });
+      ).then((res) => res.json());
+      // .then((data) => {
+      //   console.log("on execute", data);
+      //   return { ...data };
+      // });
     },
   });
+
+  const onSubmit = async (data) => {
+    data.status = "Pending";
+    data.myOrder = cartDetails;
+    await triggerBkash();
+    axios
+      .post("https://pixacam-serverside.vercel.app/orders", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          // alert("Placing order successfully");
+          reset();
+          // navigate(redirect_url);
+        }
+      });
+
+    axios.delete("https://pixacam-serverside.vercel.app/productscard");
+  };
 
   useEffect(() => {
     fetch("https://pixacam-serverside.vercel.app/productscard")
@@ -79,40 +104,6 @@ const PlaceOrder = () => {
     const today = year + "-" + month + "-" + day;
     document.getElementById("theDate").value = today;
   }, []);
-
-  const onSubmit = async (data) => {
-    data.status = "Pending";
-    data.myOrder = cartDetails;
-    console.log("sdfjdsffdsf");
-    // try {
-    //   const result = await axios.post("https://pixacam-serverside.vercel.app/orders");
-    //   console.log(
-    //     "🚀 ~ file: page.tsx:8 ~ bkashPaymentHandler ~ result:",
-    //     result
-    //   );
-
-    //   if (result?.data?.status) {
-    //     console.log(result);
-    //     // window.location.href = result?.data?.data?.data?.bkashURL;
-    //   } else {
-    //     console.log("object error khaici");
-    //     //   toast.error("Something went wrong");
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    // }
-
-    // axios.post('https://pixacam-serverside.vercel.app/orders', data)
-    //     .then(res => {
-    //         if (res.data.insertedId) {
-    //             alert('Placing order successfully');
-    //             reset();
-    //             navigate(redirect_url);
-    //         }
-    //     })
-
-    // axios.delete("https://pixacam-serverside.vercel.app/productscard")
-  };
 
   // Order cancel function
   const removeItems = (id) => {
